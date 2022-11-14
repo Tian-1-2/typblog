@@ -16,22 +16,22 @@
   <meta name="author" content="田云鹏">
   <meta name="keywords" content="">
   
-    <meta name="description" content="实现Aes加解密1234567891011121314151617181920212223242526import CryptoJS from &amp;#x27;crypto-js&amp;#x27;&#x2F;&#x2F;注意key和iv为16进制，不能为非16进制字符const keyHex &#x3D; CryptoJS.enc.Utf8.parse(&quot;xxxxxxxxxxxxxxxx&quot;);const iv &#x3D; C">
+    <meta name="description" content="如何解决跨域问题跨域首先要理解同源策略 同源策略 规定：浏览器要求，在解析Ajax请求时，要求浏览器的路径与Ajax的请求的路径必须满足三个要求，则满足同源策略，可以访问服务器。 要求： 协议、域名、端口号都相同，只要有一个不相同，那么都是非同源 这就要要求到浏览器请求路径、Ajax请求的网址相同 而跨域就是实现浏览器运行向服务端发送跨域请求，从而克服Ajax只能同源使用的限制 前端跨域解决方式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现Aes加解密">
-<meta property="og:url" content="http://tian-1-2.github.io/typblog.github.io/2022/10/24/20221024-%E5%AE%9E%E7%8E%B0Aes%E5%8A%A0%E8%A7%A3%E5%AF%86/index.html">
+<meta property="og:title" content="如何解决跨域问题">
+<meta property="og:url" content="http://tian-1-2.github.io/typblog.github.io/2022/10/18/20221018-%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="实现Aes加解密1234567891011121314151617181920212223242526import CryptoJS from &amp;#x27;crypto-js&amp;#x27;&#x2F;&#x2F;注意key和iv为16进制，不能为非16进制字符const keyHex &#x3D; CryptoJS.enc.Utf8.parse(&quot;xxxxxxxxxxxxxxxx&quot;);const iv &#x3D; C">
+<meta property="og:description" content="如何解决跨域问题跨域首先要理解同源策略 同源策略 规定：浏览器要求，在解析Ajax请求时，要求浏览器的路径与Ajax的请求的路径必须满足三个要求，则满足同源策略，可以访问服务器。 要求： 协议、域名、端口号都相同，只要有一个不相同，那么都是非同源 这就要要求到浏览器请求路径、Ajax请求的网址相同 而跨域就是实现浏览器运行向服务端发送跨域请求，从而克服Ajax只能同源使用的限制 前端跨域解决方式">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-24T12:46:25.000Z">
-<meta property="article:modified_time" content="2022-11-12T08:52:36.512Z">
+<meta property="article:published_time" content="2022-10-18T08:46:25.000Z">
+<meta property="article:modified_time" content="2022-11-14T02:52:38.942Z">
 <meta property="article:author" content="田云鹏">
-<meta property="article:tag" content="实习">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>实现Aes加解密 - Hexo</title>
+  <title>如何解决跨域问题 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -208,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="实现Aes加解密"></span>
+            <span id="subtitle" data-typed-text="如何解决跨域问题"></span>
           
         </div>
 
@@ -219,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-24 20:46" pubdate>
-          2022年10月24日 晚上
+        <time datetime="2022-10-18 16:46" pubdate>
+          2022年10月18日 下午
         </time>
       </span>
     
@@ -231,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          705 字
+          1.7k 字
         
       </span>
     
@@ -242,7 +242,7 @@
         
         
         
-          6 分钟
+          15 分钟
         
       </span>
     
@@ -280,13 +280,31 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">实现Aes加解密</h1>
+            <h1 style="display: none">如何解决跨域问题</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="实现Aes加解密"><a href="#实现Aes加解密" class="headerlink" title="实现Aes加解密"></a>实现Aes加解密</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">import</span> CryptoJS <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;crypto-js&#x27;</span><br><br>//注意key和iv为<span class="hljs-number">16</span>进制，不能为非<span class="hljs-number">16</span>进制字符<br>const keyHex = CryptoJS.enc.Utf8.parse(&quot;xxxxxxxxxxxxxxxx&quot;);<br>const iv = CryptoJS.enc.Utf8.parse(&quot;xxxxxxxxxxxxxxxx&quot;);<br><br><span class="hljs-keyword">function</span> encode(msg)&#123;<br>    const <span class="hljs-keyword">encrypted</span> = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(msg), keyHex, &#123;<br>        iv: iv,<br>        mode: CryptoJS.mode.CBC,<br>        padding: CryptoJS.pad.Pkcs7<br>    &#125;)<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">encrypted</span>.toString();<br>&#125;<br><br><span class="hljs-keyword">function</span> decode(enc)&#123;<br>    let decrypt = CryptoJS.AES.decrypt(enc, keyHex, &#123; iv: iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 &#125;);<br>    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);<br>    <span class="hljs-keyword">return</span> decryptedStr.toString();<br>&#125;<br><br>export <span class="hljs-keyword">default</span> &#123;<br>    encode,<br>    decode<br>&#125;<br><br></code></pre></td></tr></table></figure>
+                <h2 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h2><p>跨域首先要理解同源策略</p>
+<p><strong>同源策略</strong></p>
+<p>规定：浏览器要求，在解析<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Ajax&spm=1001.2101.3001.7020">Ajax</a>请求时，要求浏览器的路径与Ajax的请求的路径必须满足三个要求，则满足同源策略，可以访问服务器。</p>
+<p>要求：</p>
+<p><strong>协议、域名、端口号都相同，只要有一个不相同，那么都是非同源</strong></p>
+<p>这就要要求到浏览器请求路径、Ajax请求的网址相同</p>
+<p><strong>而跨域就是实现浏览器运行向服务端发送跨域请求，从而克服Ajax只能同源使用的限制</strong></p>
+<p><strong>前端跨域解决方式</strong></p>
+<p>常见的跨域有三种：</p>
+<p>jspn跨域，原理：动态生成script标签，通过script标签引入接口地址(因为script标签不存在跨域的)</p>
+<p>cors跨域(后端开启) ：全称 “跨域资源共享”，原理：它允许浏览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制</p>
+<p>vue代理服务器proxy跨域：通过请求本地的服务器，然后本地的服务器再去请求远程的服务器(后端部署接口的服务器)，最后本地服务器再将请求回来的数据返回给浏览器(本地服务器和浏览器之前不存在跨域)</p>
+<p>两个关键点：</p>
+<p><strong>本地服务器(利用node.js创建的本地服务器进行代理,也叫代理服务器)和浏览器之间不存在跨域</strong></p>
+<p><strong>服务器和服务器之间不存在跨域</strong></p>
+<p>自己曾在vue项目中配置过</p>
+<p>vue代理服务器proxy跨域：通过请求本地的服务器，然后本地的服务器再去请求远程的服务器(后端部署接口的服务器)，最后本地服务器再将请求回来的数据返回给浏览器(本地服务器和浏览器之前不存在跨域)</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-string">//</span> 假设要请求的接口是：http:<span class="hljs-string">//40.00.100.100</span><span class="hljs-function">:3002</span>/api/user/add<br>module.exports = &#123;<br>    devServer:&#123;<br>      host:&#x27;localhost&#x27;,  <span class="hljs-string">//</span> 本地主机<br>        port<span class="hljs-function">:5000</span>,  <span class="hljs-string">//</span> 端口号的配置<br>        open<span class="hljs-function">:true</span>,  <span class="hljs-string">//</span> 自动打开浏览器<br>        proxy:&#123;<br>          &#x27;<span class="hljs-string">/api</span>&#x27;: &#123;   <span class="hljs-string">//</span>  拦截以 <span class="hljs-string">/api</span> 开头的接口<br>            target: &#x27;http:<span class="hljs-string">//40.00.100.100</span><span class="hljs-function">:3002</span>&#x27;,<span class="hljs-string">//</span>设置你调用的接口域名和端口号 别忘了加http<br>            changeOrigin: <span class="hljs-literal">true</span>,    <span class="hljs-string">//</span>这里<span class="hljs-literal">true</span>表示实现跨域<br>            secure: <span class="hljs-literal">false</span>, <span class="hljs-string">//</span> 如果是https接口，需要配置这个参数<br>            pathRewrite: &#123;<br>              &#x27;^<span class="hljs-string">/api</span>&#x27;:&#x27;/&#x27;  <span class="hljs-string">//</span>这里理解成用‘<span class="hljs-string">/api</span>’代替target里面的地址，后面组件中我们掉接口时直接用api代替 比如我要调用&#x27;http:<span class="hljs-string">//40.00.100.100</span><span class="hljs-function">:3002</span>/api/user/add&#x27;，直接写‘<span class="hljs-string">/api/user/add</span>’即可<br>            &#125;<br>          &#125;,<br><span class="hljs-string">//</span> 假如又有一个接口是：http:<span class="hljs-string">//40.00.100.100</span><span class="hljs-function">:3002</span>/get/list/add<br><span class="hljs-string">//</span> 那就再配置一个 get的，如下：<br>          &#x27;<span class="hljs-string">/get</span>&#x27;: &#123;   <span class="hljs-string">//</span>  拦截以 <span class="hljs-string">/get</span> 开头的接口<br>            target: &#x27;http:<span class="hljs-string">//40.00.100.100</span><span class="hljs-function">:3002</span>&#x27;,<span class="hljs-string">//</span>设置你调用的接口域名和端口号 别忘了加http<br>            changeOrigin: <span class="hljs-literal">true</span>,    <span class="hljs-string">//</span>这里<span class="hljs-literal">true</span>表示实现跨域<br>            secure: <span class="hljs-literal">false</span>, <span class="hljs-string">//</span> 如果是https接口，需要配置这个参数<br>            pathRewrite: &#123;<br>              &#x27;^<span class="hljs-string">/api</span>&#x27;:&#x27;/&#x27;  <span class="hljs-string">//</span>这里理解成用‘<span class="hljs-string">/api</span>’代替target里面的地址，<br>            &#125;<br>          &#125;<br>         <span class="hljs-string">//</span> 调用的时候直接  <span class="hljs-string">/get/list/add</span>  就可以了<br>        &#125;<br>    &#125;<br>  &#125;<br>  <span class="hljs-string">//</span> 注意：修改了配置文件后一定要重启才会生效;<br></code></pre></td></tr></table></figure>
 
+<p>代理跨域的主要方式是利用服务器请求服务器的方式避过跨域问题来实现的.大概的流程: 浏览器&#x3D;&#x3D;&#x3D;&gt;代理服务器&#x3D;&#x3D;&#x3D;&gt;目标服务器.</p>
 
                 
               </div>
@@ -305,7 +323,7 @@
     
       <span class="category-chain">
         
-  <a href="/typblog.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="category-chain-item">工具使用</a>
+  <a href="/typblog.github.io/categories/Vue/" class="category-chain-item">Vue</a>
   
   
 
@@ -320,7 +338,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/typblog.github.io/tags/%E5%AE%9E%E4%B9%A0/">#实习</a>
+        <a href="/typblog.github.io/tags/vue/">#vue</a>
       
     </div>
   
@@ -332,8 +350,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>实现Aes加解密</div>
-      <div>http://tian-1-2.github.io/typblog.github.io/2022/10/24/20221024-实现Aes加解密/</div>
+      <div>如何解决跨域问题</div>
+      <div>http://tian-1-2.github.io/typblog.github.io/2022/10/18/20221018-如何解决跨域问题/</div>
     </div>
     <div class="license-meta">
       
@@ -345,7 +363,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月24日</div>
+          <div>2022年10月18日</div>
         </div>
       
       
@@ -377,9 +395,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/typblog.github.io/2022/10/25/20221025-%E8%A7%A3%E5%86%B3Echarts%E4%B8%AD%E6%8A%98%E7%BA%BF%E5%9B%BE%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" title="解决Echarts中折线图出现的问题">
+                      <a href="/typblog.github.io/2022/10/18/20221018-%E5%88%A9%E7%94%A8qrcode.vue%E5%BA%93%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/" title="利用qrcode.vue库生成二维码">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">解决Echarts中折线图出现的问题</span>
+                        <span class="hidden-mobile">利用qrcode.vue库生成二维码</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -387,8 +405,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/typblog.github.io/2022/10/19/20221019-JS%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" title="JS垃圾回收机制">
-                        <span class="hidden-mobile">JS垃圾回收机制</span>
+                      <a href="/typblog.github.io/2022/10/18/20221018-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%EF%BC%8C%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E4%BB%A5%E5%8F%8AHttps%E5%8A%A0%E5%AF%86/" title="对称加密，非对称加密以及Https加密">
+                        <span class="hidden-mobile">对称加密，非对称加密以及Https加密</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
