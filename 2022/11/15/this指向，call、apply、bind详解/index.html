@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog.github.io/img/fluid.png">
+  <link rel="icon" href="/typblog.github.io/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="田云鹏">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1234567title: this指向，call、apply、bind详解date: 2022&#x2F;10&#x2F;02 16:46:25categories: JStags: JS    this指向，call、apply、bind详解this 总是（非严格模式下）指向一个对象，而具体指向哪个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境； 具体在实际应用中，this指向大概可以分为以下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://tian-1-2.github.io/typblog.github.io/2022/11/15/this%E6%8C%87%E5%90%91%EF%BC%8Ccall%E3%80%81apply%E3%80%81bind%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1234567title: this指向，call、apply、bind详解date: 2022&#x2F;10&#x2F;02 16:46:25categories: JStags: JS    this指向，call、apply、bind详解this 总是（非严格模式下）指向一个对象，而具体指向哪个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境； 具体在实际应用中，this指向大概可以分为以下">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-15T08:06:46.743Z">
+<meta property="article:modified_time" content="2022-11-15T08:06:46.744Z">
+<meta property="article:author" content="田云鹏">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/typblog.github.io/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/typblog.github.io/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog.github.io/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog.github.io/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog.github.io/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/typblog.github.io/js/utils.js" ></script>
+  <script  src="/typblog.github.io/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/typblog.github.io/">
+      <strong>田云鹏的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog.github.io/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog.github.io/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog.github.io/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog.github.io/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog.github.io/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog.github.io/example/">
+                <i class="iconfont icon-book"></i>
+                留言板
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/typblog.github.io/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-15 16:06" pubdate>
+          2022年11月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          27 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs subunit">title: this指向，call、apply、bind详解<br><br>date: 2022/10/02 16:46:25<br><br>categories: JS<br><br><span class="hljs-keyword">tags:</span> JS<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="this指向，call、apply、bind详解"><a href="#this指向，call、apply、bind详解" class="headerlink" title="this指向，call、apply、bind详解"></a>this指向，call、apply、bind详解</h2><p>this 总是（非严格模式下）指向一个对象，而具体指向哪个对象是在运行时基于函数的<code>执行环境</code>动态绑定的，而非函数被声明时的环境；</p>
+<p>具体在实际应用中，this指向大概可以分为以下几种</p>
+<h4 id="1-作为对象的方法调用"><a href="#1-作为对象的方法调用" class="headerlink" title="1.作为对象的方法调用"></a>1.作为对象的方法调用</h4><p>当函数作为对象的方法被调用时，this指向该对象</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> obj = &#123;<br>    <span class="hljs-attr">a</span>: <span class="hljs-string">&#x27;test&#x27;</span>,<br>    <span class="hljs-attr">getName</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(this === obj);<br>        <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(this.a);<br>    &#125;<br>&#125;;<br><br>obj.getName(); <span class="hljs-comment">// true &#x27;test&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="2-作为普通函数调用时"><a href="#2-作为普通函数调用时" class="headerlink" title="2.作为普通函数调用时"></a>2.<strong>作为普通函数调用时</strong></h4><p>当函数不作为对象的属性被调用，而是以普通函数的方式，this总是指向全局对象（在浏览器中，通常是Window对象）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;test&#x27;</span>;<br><br><span class="hljs-keyword">var</span> getName = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);<br>&#125;;<br><br><span class="hljs-title function_">getName</span>(); <span class="hljs-comment">// test</span><br><br></code></pre></td></tr></table></figure>
+
+<p>这里有一个迷惑性的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;老王&#x27;</span><br><span class="hljs-keyword">var</span> obj = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;yuguang&#x27;</span>,<br>    <span class="hljs-attr">getName</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">var</span> getNew = obj.<span class="hljs-property">getName</span>;<br><span class="hljs-title function_">getNew</span>(); <span class="hljs-comment">// 老王</span><br></code></pre></td></tr></table></figure>
+
+<p>这里的getNew相当于一个函数调用了，而不是对象中的方法</p>
+<h4 id="3-构造器调用"><a href="#3-构造器调用" class="headerlink" title="3.构造器调用"></a>3.构造器调用</h4><p>除了一些内置函数，大部分Js中的函数都可以成为构造器，它们与普通函数没什么不同</p>
+<p><strong>构造器</strong>和<strong>普通函数</strong>的区别在于<strong>被调用的方式</strong>：<br>当new运算符调用函数时，总是返回一个对象，this通常也指向这个对象</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> MyClass = <span class="hljs-keyword">function</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">&#x27;tian&#x27;</span>;<br>&#125;<br><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> MyClass();<br>obj.name; <span class="hljs-comment">// tina</span><br></code></pre></td></tr></table></figure>
+
+
+<p>但是，如果显式的返回了一个object对象，那么此次运算结果最终会返回这个对象。</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> MyClass = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    this.name = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-number">2</span><br>    &#125;<br>&#125;<br><span class="hljs-keyword">var</span> myClass = <span class="hljs-keyword">new</span> MyClass(); <br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;myClass:&#x27;</span>, myClass); <span class="hljs-comment">// &#123; name: 2&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>只要构造器不显示的返回任何数据，或者返回非对象类型的数据，就不会造成上述问题。<br>这里就涉及到new的实现过程了，之前的博客写过了，这里不再赘述，请参考</p>
+<p><a href="https://tian-1-2.github.io/typblog.github.io/2022/05/23/2022523-new%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B/">https://tian-1-2.github.io/typblog.github.io/2022/05/23/2022523-new%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B/</a></p>
+<h4 id="4、call或apply调用"><a href="#4、call或apply调用" class="headerlink" title="4、call或apply调用"></a><strong>4、call或apply调用</strong></h4><p>跟普通的函数调用相比，用call和apply可以动态的改变函数的this</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> obj1 = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">getName</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">num = <span class="hljs-string">&#x27;&#x27;</span></span>) &#123;<br>        <span class="hljs-keyword">return</span> this.name + num;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">var</span> obj2 = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-number">2</span>,<br>&#125;;<br><span class="hljs-comment">// 可以理解成在 obj2的作用域下调用了 obj1.getName()函数</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(obj1.getName()); <span class="hljs-comment">// 1</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(obj1.getName.call(obj2, <span class="hljs-number">2</span>)); <span class="hljs-comment">// 2 + 2 = 4</span><br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(obj1.getName.apply(obj2, [<span class="hljs-number">2</span>])); <span class="hljs-comment">// 2 + 2 = 4</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="5-箭头函数"><a href="#5-箭头函数" class="headerlink" title="5**.箭头函数**"></a>5**.箭头函数**</h4><p>箭头函数不会创建自己的this，它只会从自己的作用域链的上一层继承this。</p>
+<p>因此，在下面的代码中，传递给<code>getVal</code>函数内的this并不是调用者自身，而是外部的this</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">this</span>.<span class="hljs-keyword">val</span> = <span class="hljs-number">2</span>;<br><span class="hljs-keyword">var</span> obj = &#123;<br>    <span class="hljs-keyword">val</span>: <span class="hljs-number">1</span>,<br>    getVal: () =&gt; &#123;<br>        console.log(<span class="hljs-keyword">this</span>.<span class="hljs-keyword">val</span>);<br>    &#125;<br>&#125;<br>obj.getVal(); <span class="hljs-comment">// 2</span><br></code></pre></td></tr></table></figure>
+
+<p>以上五种是this指向的基本情况</p>
+<p>下面在详细介绍一下call和apply</p>
+<h3 id="call和apply"><a href="#call和apply" class="headerlink" title="call和apply"></a>call和apply</h3><h4 id="1-call和apply区别"><a href="#1-call和apply区别" class="headerlink" title="1.call和apply区别"></a>1.call和apply区别</h4><p>先来看区别，是因为它们几乎没有区别，下文代码实例call和apply都可以轻易的切换。</p>
+<p>当它们被设计出来时要做到的事情一摸一样，唯一的区别就在于传参的格式不一样</p>
+<p>apply接受两个参数<br>    第一个参数指定了函数体内this对象的指向<br>    第二个参数为一个带下标的参数集合（可以是数组或者类数组）</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">func</span>.apply(obj,args)<span class="hljs-regexp">//</span>obj要改变指向的对象，args为数组或者类数组<br></code></pre></td></tr></table></figure>
+
+<p>call接受的参数不固定<br>    第一个参数指定了函数体内this对象的指向<br>    第二个参数及以后为函数调用的参数</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">func</span>.call(obj,args1,args2...)<span class="hljs-regexp">//</span>obj要改变指向的对象，args1,args2...多个参数依次传入<br></code></pre></td></tr></table></figure>
+
+<p>因为在所有（非箭头）函数中都可以通过arguments对象在函数中引用函数的参数。此对象包含传递给函数的每个参数，它本身就是一个类数组，我们apply在实际使用中更常见一些。</p>
+<p>call是包装在apply上面的语法糖，如果我们明确的知道参数数量，并且希望展示它们，可以使用call。</p>
+<p>当使用call或者apply的时候，如果我们传入的第一个参数为null，函数体内的this会默认指向宿主对象，在浏览器中则是window。</p>
+<h3 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h3><p>bind的作用是只修改this指向，但不会立即执行fn；</p>
+<p>会返回一个修改了this指向后的fn。</p>
+<p>需要调用才会执行:<code>bind(thisArg, arg1, arg2, arg3, ...)()</code>。</p>
+<p>bind的传参和call相同。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs awk">let obj = &#123;<br>    name: <span class="hljs-string">&quot;xiaoming&quot;</span>,<br>    age: <span class="hljs-number">24</span>,<br>    sayHello: <span class="hljs-keyword">function</span> (job, hobby) &#123;<br>        console.log(`我叫<span class="hljs-variable">$&#123;this.name&#125;</span>,今年<span class="hljs-variable">$&#123;this.age&#125;</span>岁。我的工作是: <span class="hljs-variable">$&#123;job&#125;</span>，我的爱好是: <span class="hljs-variable">$&#123;hobby&#125;</span>。`);<br>    &#125;<br>&#125;<br><span class="hljs-regexp">//</span> obj.sayHello(<span class="hljs-string">&#x27;程序员&#x27;</span>, <span class="hljs-string">&#x27;看美女&#x27;</span>); <span class="hljs-regexp">//</span> 我叫xiaoming,今年<span class="hljs-number">24</span>岁。我的工作是: 程序员，我的爱好是: 看美女。<br><br>let obj1 = &#123;<br>    name: <span class="hljs-string">&quot;lihua&quot;</span>,<br>    age: <span class="hljs-number">30</span><br>&#125;<br>obj.sayHello.bind(obj1, <span class="hljs-string">&#x27;设计师&#x27;</span>, <span class="hljs-string">&#x27;画画&#x27;</span>); <span class="hljs-regexp">//</span> 无输出结果<br>obj.sayHello.bind(obj1, <span class="hljs-string">&#x27;设计师&#x27;</span>, <span class="hljs-string">&#x27;画画&#x27;</span>)(); <span class="hljs-regexp">//</span> 我叫lihua,今年<span class="hljs-number">30</span>岁。我的工作是: 设计师，我的爱好是: 画画。<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://tian-1-2.github.io/typblog.github.io/2022/11/15/this指向，call、apply、bind详解/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>田云鹏</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/typblog.github.io/2022/11/02/2022112-uniapp%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B0%81%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="uniapp网络请求封装及使用">
+                        <span class="hidden-mobile">uniapp网络请求封装及使用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"eCwG0nnpzuXX3P72P4DIj1Ct-gzGzoHsz","appKey":"qYCJDnCnKc5wQSRsaOCYPoRz","path":"window.location.pathname","placeholder":"你有什么想说得在这留下吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/typblog.github.io/js/events.js" ></script>
+<script  src="/typblog.github.io/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/typblog.github.io/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/typblog.github.io/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/typblog.github.io/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
