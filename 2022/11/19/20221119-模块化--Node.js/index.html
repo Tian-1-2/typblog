@@ -16,25 +16,22 @@
   <meta name="author" content="田云鹏">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Vue2生命周期废话不多说，先直接上图  图上已经描绘的很清楚了，接下来我再总结一下： 首先创建一个vue实例 然后会初始化这个实例的所有的生命周期函数 接着会进行第一个生命周期beforecreate，这时只是初始化完成了主要的生命周期函数而已，实例中的data和methods尚未初始化 然后会进行created,这时data和methods已经初始化好了；一般在这里会发送Ajax请求 接着">
+    <meta name="description" content="模块化—Node.js模块化概念 模块化是指解决一个复杂问题时，自顶向下逐层把系统划分为若干模块的过程，模块是可组合、分解和更换的单元。 模块化可提高代码的复用性和可维护性，实现按需加载。 模块化规范是对代码进行模块化拆分和组合时需要遵守的规则，如使用何种语法格式引用模块和向外暴露成员。  Node.js 中模块的分类 内置模块 自定义模块 第三方模块  Node.js 中的模块作用域 和函数作用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue的生命周期">
-<meta property="og:url" content="http://typhome.gitee.io/my-blog/2022/10/10/20221010-Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+<meta property="og:title" content="模块化--Node.js">
+<meta property="og:url" content="http://typhome.gitee.io/my-blog/2022/11/19/20221119-%E6%A8%A1%E5%9D%97%E5%8C%96--Node.js/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Vue2生命周期废话不多说，先直接上图  图上已经描绘的很清楚了，接下来我再总结一下： 首先创建一个vue实例 然后会初始化这个实例的所有的生命周期函数 接着会进行第一个生命周期beforecreate，这时只是初始化完成了主要的生命周期函数而已，实例中的data和methods尚未初始化 然后会进行created,这时data和methods已经初始化好了；一般在这里会发送Ajax请求 接着">
+<meta property="og:description" content="模块化—Node.js模块化概念 模块化是指解决一个复杂问题时，自顶向下逐层把系统划分为若干模块的过程，模块是可组合、分解和更换的单元。 模块化可提高代码的复用性和可维护性，实现按需加载。 模块化规范是对代码进行模块化拆分和组合时需要遵守的规则，如使用何种语法格式引用模块和向外暴露成员。  Node.js 中模块的分类 内置模块 自定义模块 第三方模块  Node.js 中的模块作用域 和函数作用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ccd16fe2d1942e699bde7a7971c26a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp">
-<meta property="og:image" content="https://gitee.com/typhome/typora-image-library/raw/master/img/202210171612019.png">
-<meta property="article:published_time" content="2022-10-10T09:46:23.000Z">
-<meta property="article:modified_time" content="2022-11-12T08:52:36.512Z">
+<meta property="article:published_time" content="2022-11-19T08:46:25.000Z">
+<meta property="article:modified_time" content="2022-11-18T03:18:10.613Z">
 <meta property="article:author" content="田云鹏">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="Node">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ccd16fe2d1942e699bde7a7971c26a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp">
   
   
   
-  <title>Vue的生命周期 - Hexo</title>
+  <title>模块化--Node.js - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Vue的生命周期"></span>
+            <span id="subtitle" data-typed-text="模块化--Node.js"></span>
           
         </div>
 
@@ -222,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-10 17:46" pubdate>
-          2022年10月10日 下午
+        <time datetime="2022-11-19 16:46" pubdate>
+          2022年11月19日 下午
         </time>
       </span>
     
@@ -234,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          971 字
+          1.2k 字
         
       </span>
     
@@ -245,7 +242,7 @@
         
         
         
-          9 分钟
+          11 分钟
         
       </span>
     
@@ -283,95 +280,63 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Vue的生命周期</h1>
+            <h1 style="display: none">模块化--Node.js</h1>
             
             
               <div class="markdown-body">
                 
-                <meta name="referrer" content="no-referrer"/>
-
-<h2 id="Vue2生命周期"><a href="#Vue2生命周期" class="headerlink" title="Vue2生命周期"></a>Vue2生命周期</h2><p>废话不多说，先直接上图</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5ccd16fe2d1942e699bde7a7971c26a2~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/my-blog/img/loading.gif" lazyload alt="生命周期.webp"></p>
-<p>图上已经描绘的很清楚了，接下来我再总结一下：</p>
-<p>首先创建一个vue实例</p>
-<p>然后会初始化这个实例的所有的生命周期函数</p>
-<p>接着会进行第一个生命周期<strong>beforecreate</strong>，这时只是初始化完成了主要的生命周期函数而已，实例中的data和methods尚未初始化</p>
-<p>然后会进行<strong>created</strong>,这时data和methods已经初始化好了；一般在这里会发送Ajax请求</p>
-<p>接着会进行编译vue的指令，同时渲染HTML结构，生成虚拟dom，但是还没有渲染到页面上</p>
-<p>然后会进行第三个生命周期函数<strong>beforeMount</strong>，这时候将要把内存中的HTML结构渲染到页面上，但是还没有真正的渲染，所以页面上还是空白的，不能操作dom</p>
-<p>接着是第四个生命周期<strong>mounted，</strong>也创建阶段最后一个生命周期，此时对dom的操作都有效，可以在此初始化一些js的插件</p>
-<p>然后当data中的数据发生变化时，会依次调用beforeUpdate和update</p>
-<p>首先<strong>beforeUpdate</strong>时<strong>，</strong>表示data中的数据已经发生了变化，data数据已经是最新的了，但是，用户看到的页面上的数据依然是老数据</p>
-<p>接着<strong>updated</strong>表示页面已经完成了更新，此时页面和data但是最新的</p>
-<p>最后当组件被销毁时，也会触发两个生命周期</p>
-<p>首先<strong>beforDestroy</strong>表示vm实例即将被摧毁，所以此时vm实例还存在，可以在此时做一些收尾操作，比如关闭定时器，取消订阅消息，解绑自定义事件等</p>
-<p><strong>destoryed</strong>表示此时vm实例已经被摧毁了，无法正常工作了</p>
-<p>接下来讲讲vue3的生命周期，基本上与vue2类似</p>
-<h2 id="Vue3生命周期"><a href="#Vue3生命周期" class="headerlink" title="Vue3生命周期"></a>Vue3生命周期</h2><p>还是直接上图</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/202210171612019.png" srcset="/my-blog/img/loading.gif" lazyload alt="image-20221017161205953"></p>
-<p>直接接拿来与Vue2对比一下就很清晰看出区别了：</p>
-<table>
-<thead>
-<tr>
-<th>Vue2生命周期</th>
-<th>Vue3生命周期</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>beforeCreate</td>
-<td>setup()</td>
-</tr>
-<tr>
-<td>created</td>
-<td>setup()</td>
-</tr>
-<tr>
-<td>beforeMount</td>
-<td>onBeforeMount</td>
-</tr>
-<tr>
-<td>mounted</td>
-<td>onMounted</td>
-</tr>
-<tr>
-<td>beforeUpdate</td>
-<td>onBeforeUpdate</td>
-</tr>
-<tr>
-<td>updated</td>
-<td>onUpdated</td>
-</tr>
-<tr>
-<td>beforeDestroy</td>
-<td>onBeforeUnmount</td>
-</tr>
-<tr>
-<td>destroyed</td>
-<td>onUnmounted</td>
-</tr>
-</tbody></table>
-<p>以及特殊钩子</p>
-<table>
-<thead>
-<tr>
-<th>Vue2</th>
-<th>Vue 3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>activated</td>
-<td>deactivated</td>
-</tr>
-<tr>
-<td>onActivated</td>
-<td>onDeactivated</td>
-</tr>
-<tr>
-<td>errorCaptured</td>
-<td>onErrorCaptured</td>
-</tr>
-</tbody></table>
-<p>​	<br>​	<br>​	<br>​	</p>
+                <h1 id="模块化—Node-js"><a href="#模块化—Node-js" class="headerlink" title="模块化—Node.js"></a>模块化—Node.js</h1><h3 id="模块化概念"><a href="#模块化概念" class="headerlink" title="模块化概念"></a>模块化概念</h3><ul>
+<li>模块化是指解决一个复杂问题时，自顶向下逐层把系统划分为若干模块的过程，模块是可组合、分解和更换的单元。</li>
+<li>模块化可提高代码的复用性和可维护性，实现按需加载。</li>
+<li>模块化规范是对代码进行模块化拆分和组合时需要遵守的规则，如使用何种语法格式引用模块和向外暴露成员。</li>
+</ul>
+<h3 id="Node-js-中模块的分类"><a href="#Node-js-中模块的分类" class="headerlink" title="Node.js 中模块的分类"></a>Node.js 中模块的分类</h3><ul>
+<li>内置模块</li>
+<li>自定义模块</li>
+<li>第三方模块</li>
+</ul>
+<h3 id="Node-js-中的模块作用域"><a href="#Node-js-中的模块作用域" class="headerlink" title="Node.js 中的模块作用域"></a>Node.js 中的模块作用域</h3><ul>
+<li>和函数作用域类似，在自定义模块中定义的变量、方法等成员，只能在当前模块内被访问，这种模块级别的访问限制，叫做模块作用域</li>
+<li>防止全局变量污染</li>
+</ul>
+<h3 id="模块作用域的成员"><a href="#模块作用域的成员" class="headerlink" title="模块作用域的成员"></a>模块作用域的成员</h3><ul>
+<li>自定义模块中都有一个 <code>module</code> 对象，存储了和当前模块有关的信息</li>
+<li>在自定义模块中，可以使用 <code>module.exports</code> 对象，将模块内的成员共享出去，供外界使用。导入自定义模块时，得到的就是 <code>module.exports</code> 指向的对象。</li>
+<li>默认情况下，<code>exports</code> 和 <code>module.exports</code> 指向同一个对象。最终共享的结果，以 <code>module.exports</code> 指向的对象为准。</li>
+</ul>
+<h3 id="CommonJS-模块化规范"><a href="#CommonJS-模块化规范" class="headerlink" title="CommonJS 模块化规范"></a>CommonJS 模块化规范</h3><ul>
+<li>每个模块内部，<code>module</code> 变量代表当前模块</li>
+<li><code>module</code> 变量是一个对象，<code>module.exports</code> 是对外的接口</li>
+<li>加载某个模块即加载该模块的 <code>module.exports</code> 属性</li>
+</ul>
+<h3 id="模块加载机制"><a href="#模块加载机制" class="headerlink" title="模块加载机制"></a>模块加载机制</h3><p>模块第一次加载后会被缓存，即多次调用 <code>require()</code> 不会导致模块的代码被执行多次，提高模块加载效率。</p>
+<h4 id="内置模块加载"><a href="#内置模块加载" class="headerlink" title="内置模块加载"></a>内置模块加载</h4><p>内置模块加载优先级最高。</p>
+<h4 id="自定义模块加载"><a href="#自定义模块加载" class="headerlink" title="自定义模块加载"></a>自定义模块加载</h4><p>加载自定义模块时，路径要以 <code>./</code> 或 <code>../</code> 开头，否则会作为内置模块或第三方模块加载。</p>
+<p>导入自定义模块时，若省略文件扩展名，则 Node.js 会按顺序尝试加载文件：</p>
+<ul>
+<li>按确切的文件名加载</li>
+<li>补全 <code>.js</code> 扩展名加载</li>
+<li>补全 <code>.json</code> 扩展名加载</li>
+<li>补全 <code>.node</code> 扩展名加载</li>
+<li>报错</li>
+</ul>
+<h4 id="第三方模块加载"><a href="#第三方模块加载" class="headerlink" title="第三方模块加载"></a>第三方模块加载</h4><ul>
+<li>若导入第三方模块， Node.js 会从<strong>当前模块的父目录</strong>开始，尝试从 <code>/node_modules</code> 文件夹中加载第三方模块。</li>
+<li>如果没有找到对应的第三方模块，则移动到再<strong>上一层父目录</strong>中，进行加载，直到<strong>文件系统的根目录</strong>。</li>
+</ul>
+<p>例如，假设在 <code>C:\Users\bruce\project\foo.js</code> 文件里调用了 <code>require(&#39;tools&#39;)</code>，则 Node.js 会按以下顺序查找：</p>
+<ul>
+<li><code>C:\Users\bruce\project\node_modules\tools</code></li>
+<li><code>C:\Users\bruce\node_modules\tools</code></li>
+<li><code>C:\Users\node_modules\tools</code></li>
+<li><code>C:\node_modules\tools</code></li>
+</ul>
+<h4 id="目录作为模块加载"><a href="#目录作为模块加载" class="headerlink" title="目录作为模块加载"></a>目录作为模块加载</h4><p>当把目录作为模块标识符进行加载的时候，有三种加载方式：</p>
+<ul>
+<li>在被加载的目录下查找 <code>package.json</code> 的文件，并寻找 <code>main</code> 属性，作为 <code>require()</code> 加载的入口</li>
+<li>如果没有 <code>package.json</code> 文件，或者 <code>main</code> 入口不存在或无法解析，则 Node.js 将会试图加载目录下的 <code>index.js</code> 文件。</li>
+<li>若失败则报错</li>
+</ul>
 
                 
               </div>
@@ -390,7 +355,7 @@
     
       <span class="category-chain">
         
-  <a href="/my-blog/categories/Vue/" class="category-chain-item">Vue</a>
+  <a href="/my-blog/categories/Node/" class="category-chain-item">Node</a>
   
   
 
@@ -405,7 +370,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/my-blog/tags/Vue/">#Vue</a>
+        <a href="/my-blog/tags/Node/">#Node</a>
       
     </div>
   
@@ -417,8 +382,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Vue的生命周期</div>
-      <div>http://typhome.gitee.io/my-blog/2022/10/10/20221010-Vue的生命周期/</div>
+      <div>模块化--Node.js</div>
+      <div>http://typhome.gitee.io/my-blog/2022/11/19/20221119-模块化--Node.js/</div>
     </div>
     <div class="license-meta">
       
@@ -430,7 +395,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月10日</div>
+          <div>2022年11月19日</div>
         </div>
       
       
@@ -462,18 +427,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/my-blog/2022/10/13/vue%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85%E6%8A%80%E5%B7%A7/" title="vue组件封装技巧">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue组件封装技巧</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/my-blog/2022/10/09/2022109-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%87%BA%E6%9D%A5%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" title="浏览器输入url到页面展示出来的全过程">
-                        <span class="hidden-mobile">浏览器输入url到页面展示出来的全过程</span>
+                      <a href="/my-blog/2022/11/18/20221118-Node%E5%AD%A6%E4%B9%A0day01%EF%BC%9A%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97%EF%BC%8Cpath-%E8%B7%AF%E5%BE%84%E6%A8%A1%E5%9D%97/" title="文件系统模块，path 路径模块,http模块—node.js">
+                        <span class="hidden-mobile">文件系统模块，path 路径模块,http模块—node.js</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

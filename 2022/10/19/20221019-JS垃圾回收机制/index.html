@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/typblog.github.io/img/fluid.png">
-  <link rel="icon" href="/typblog.github.io/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/my-blog/img/fluid.png">
+  <link rel="icon" href="/my-blog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="JS垃圾回收机制首先垃圾回收机制的原理是垃圾收集器会定期找出那些不在继续使用的变量，然后释放其内存。 常用的实现垃圾回收通常有两种方式 1.标记清除法首先呢垃圾收集器在运行时，会给内存中的所有变量都加上一个标记，假设内存中所有所有的对象都是垃圾 然后它会将所有在上下文中的变量，以及被在上下文中引用的变量的标记清除，剩下的带有标记的变量就是待删除的了（闭包就涉及到这一点） 随后垃圾回收程序就做一次内">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS垃圾回收机制">
-<meta property="og:url" content="http://tian-1-2.github.io/typblog.github.io/2022/10/19/20221019-JS%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:url" content="http://typhome.gitee.io/my-blog/2022/10/19/20221019-JS%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="JS垃圾回收机制首先垃圾回收机制的原理是垃圾收集器会定期找出那些不在继续使用的变量，然后释放其内存。 常用的实现垃圾回收通常有两种方式 1.标记清除法首先呢垃圾收集器在运行时，会给内存中的所有变量都加上一个标记，假设内存中所有所有的对象都是垃圾 然后它会将所有在上下文中的变量，以及被在上下文中引用的变量的标记清除，剩下的带有标记的变量就是待删除的了（闭包就涉及到这一点） 随后垃圾回收程序就做一次内">
 <meta property="og:locale" content="zh_CN">
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/typblog.github.io/css/main.css" />
+<link  rel="stylesheet" href="/my-blog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/typblog.github.io/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/my-blog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/typblog.github.io/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/my-blog/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog.github.io/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog.github.io/local-search.xml"};
+    var CONFIG = {"hostname":"typhome.gitee.io","root":"/my-blog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/my-blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/typblog.github.io/js/utils.js" ></script>
-  <script  src="/typblog.github.io/js/color-schema.js" ></script>
+  <script  src="/my-blog/js/utils.js" ></script>
+  <script  src="/my-blog/js/color-schema.js" ></script>
   
 
 
@@ -96,7 +96,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/typblog.github.io/">
+    <a class="navbar-brand" href="/my-blog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -115,7 +115,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/typblog.github.io/">
+              <a class="nav-link" href="/my-blog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -127,7 +127,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/typblog.github.io/archives/">
+              <a class="nav-link" href="/my-blog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -139,7 +139,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/typblog.github.io/categories/">
+              <a class="nav-link" href="/my-blog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -151,7 +151,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/typblog.github.io/tags/">
+              <a class="nav-link" href="/my-blog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -163,7 +163,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/typblog.github.io/about/">
+              <a class="nav-link" href="/my-blog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -175,7 +175,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/typblog.github.io/example/">
+              <a class="nav-link" href="/my-blog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -204,7 +204,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/typblog.github.io/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/my-blog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -297,7 +297,7 @@
 <p>标记清除算法的优点只有一个，那就是实现比较简单，打标记也无非打与不打两种情况，这使得一位二进制位（0和1）就可以为其标记，非常简单</p>
 <p><strong>缺点</strong></p>
 <p>标记清除算法有一个很大的缺点，就是在清除之后，剩余的对象内存位置是不变的，也会导致空闲内存空间是不连续的，出现了 内存碎片，并且由于剩余空闲内存不是一整块，它是由不同大小内存组成的内存列表，这就牵扯出了内存分配的问题</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12247ac3d8f249a5ab85b9b40ba1147b~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/typblog.github.io/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12247ac3d8f249a5ab85b9b40ba1147b~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" srcset="/my-blog/img/loading.gif" lazyload alt="img"></p>
 <h5 id="2-引用计数法"><a href="#2-引用计数法" class="headerlink" title="2.引用计数法"></a>2.引用计数法</h5><p>通过计数的方法来判断是否进行垃圾回收</p>
 <p>当声明了一个变量并且将一个引用类型赋值给该变量时，这个值的引用次数就为1</p>
 <p>如果同一个值又被赋给另一个变量，那么引用数就加1</p>
@@ -335,7 +335,7 @@
     
       <span class="category-chain">
         
-  <a href="/typblog.github.io/categories/JS/" class="category-chain-item">JS</a>
+  <a href="/my-blog/categories/JS/" class="category-chain-item">JS</a>
   
   
 
@@ -350,7 +350,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/typblog.github.io/tags/JS/">#JS</a>
+        <a href="/my-blog/tags/JS/">#JS</a>
       
     </div>
   
@@ -363,7 +363,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>JS垃圾回收机制</div>
-      <div>http://tian-1-2.github.io/typblog.github.io/2022/10/19/20221019-JS垃圾回收机制/</div>
+      <div>http://typhome.gitee.io/my-blog/2022/10/19/20221019-JS垃圾回收机制/</div>
     </div>
     <div class="license-meta">
       
@@ -407,7 +407,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/typblog.github.io/2022/10/24/20221024-%E5%AE%9E%E7%8E%B0Aes%E5%8A%A0%E8%A7%A3%E5%AF%86/" title="实现Aes加解密">
+                      <a href="/my-blog/2022/10/24/20221024-%E5%AE%9E%E7%8E%B0Aes%E5%8A%A0%E8%A7%A3%E5%AF%86/" title="实现Aes加解密">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">实现Aes加解密</span>
                         <span class="visible-mobile">上一篇</span>
@@ -417,7 +417,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/typblog.github.io/2022/10/19/20221019-%E6%8F%92%E6%A7%BD/" title="插槽">
+                      <a href="/my-blog/2022/10/19/20221019-%E6%8F%92%E6%A7%BD/" title="插槽">
                         <span class="hidden-mobile">插槽</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -572,8 +572,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/typblog.github.io/js/events.js" ></script>
-<script  src="/typblog.github.io/js/plugins.js" ></script>
+<script  src="/my-blog/js/events.js" ></script>
+<script  src="/my-blog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -595,7 +595,7 @@
 
 
   
-    <script  src="/typblog.github.io/js/img-lazyload.js" ></script>
+    <script  src="/my-blog/js/img-lazyload.js" ></script>
   
 
 
@@ -694,7 +694,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/typblog.github.io/js/local-search.js" ></script>
+  <script  src="/my-blog/js/local-search.js" ></script>
 
 
 
@@ -702,7 +702,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/typblog.github.io/js/boot.js" ></script>
+<script  src="/my-blog/js/boot.js" ></script>
 
 
   
