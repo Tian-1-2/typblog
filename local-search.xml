@@ -308,31 +308,6 @@
   
   
   <entry>
-    <title>JS垃圾回收机制</title>
-    <link href="/typblog/2022/10/19/20221019-JS%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/"/>
-    <url>/typblog/2022/10/19/20221019-JS%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
-    
-    <content type="html"><![CDATA[<h2 id="JS垃圾回收机制"><a href="#JS垃圾回收机制" class="headerlink" title="JS垃圾回收机制"></a>JS垃圾回收机制</h2><p>首先垃圾回收机制的原理是垃圾收集器会定期找出那些不在继续使用的变量，然后释放其内存。</p><p>常用的实现垃圾回收通常有两种方式</p><h5 id="1-标记清除法"><a href="#1-标记清除法" class="headerlink" title="1.标记清除法"></a>1.标记清除法</h5><p>首先呢垃圾收集器在运行时，会给内存中的所有变量都加上一个标记，假设内存中所有所有的对象都是垃圾</p><p>然后它会将所有在上下文中的变量，以及被在上下文中引用的变量的标记清除，剩下的带有标记的变量就是待删除的了（闭包就涉及到这一点）</p><p>随后垃圾回收程序就做一次内存清理，将所有带标记的变量销毁并回收它们所占用的空间</p><p>最后把所有内存中的对象重新打上标记，等待下一轮垃圾回收</p><p><strong>优点</strong></p><p>标记清除算法的优点只有一个，那就是实现比较简单，打标记也无非打与不打两种情况，这使得一位二进制位（0和1）就可以为其标记，非常简单</p><p><strong>缺点</strong></p><p>标记清除算法有一个很大的缺点，就是在清除之后，剩余的对象内存位置是不变的，也会导致空闲内存空间是不连续的，出现了 内存碎片，并且由于剩余空闲内存不是一整块，它是由不同大小内存组成的内存列表，这就牵扯出了内存分配的问题</p><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/12247ac3d8f249a5ab85b9b40ba1147b~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="img"></p><h5 id="2-引用计数法"><a href="#2-引用计数法" class="headerlink" title="2.引用计数法"></a>2.引用计数法</h5><p>通过计数的方法来判断是否进行垃圾回收</p><p>当声明了一个变量并且将一个引用类型赋值给该变量时，这个值的引用次数就为1</p><p>如果同一个值又被赋给另一个变量，那么引用数就加1</p><p>如果该变量的值被其他的值覆盖了，则引用次数减 1，即不被之前的变量引用</p><p>当这个值的引用次数变为 0 的时候，说明没有变量在使用，这个值没法被访问了，回收空间，垃圾回收器会在运行的时候清理掉引用次数为 0 的值占用的内存</p><p>如下</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">function</span> func4 () &#123;<br>      const c = &#123;&#125; <span class="hljs-regexp">//</span> 引用类型变量 c的引用计数为 <span class="hljs-number">0</span><br>      let d = c <span class="hljs-regexp">//</span> c 被 d 引用 c的引用计数为 <span class="hljs-number">1</span><br>      let e = c <span class="hljs-regexp">//</span> c 被 e 引用 c的引用计数为 <span class="hljs-number">2</span><br>      d = &#123;&#125; <span class="hljs-regexp">//</span> d 不再引用c c的引用计数减为 <span class="hljs-number">1</span><br>      e = null <span class="hljs-regexp">//</span> e 不再引用 c c的引用计数减为 <span class="hljs-number">0</span> 将被回收<br>&#125;<br></code></pre></td></tr></table></figure><p>不过这种方法会暴露一种明显的缺点–循环引用</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-function">function <span class="hljs-title">func5</span> ()</span> &#123;<br>      <span class="hljs-keyword">let</span> f = &#123;&#125;<br>      <span class="hljs-keyword">let</span> g = &#123;&#125;<br>      f.prop = g<br>      g.prop = f<br>      <span class="hljs-comment">// 由于 f 和 g 互相引用，计数永远不可能为 0</span><br>&#125;<br></code></pre></td></tr></table></figure><p>像上面这种情况就需要手动将变量的内存释放</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">f.prop</span> = null<br><span class="hljs-attr">g.prop</span> = null<br></code></pre></td></tr></table></figure><p><strong>优点</strong></p><p>引用计数算法的优点我们对比标记清除来看就会清晰很多，首先引用计数在引用值为 0 时，也就是在变成垃圾的那一刻就会被回收，所以它可以立即回收垃圾</p><p>而标记清除算法需要每隔一段时间进行一次，那在应用程序（JS脚本）运行过程中线程就必须要暂停去执行一段时间的 <code>GC</code>，另外，标记清除算法需要遍历堆里的活动以及非活动对象来清除，而引用计数则只需要在引用时计数就可以了</p><p><strong>缺点</strong></p><p>引用计数的缺点想必大家也都很明朗了，首先它需要一个计数器，而此计数器需要占很大的位置，因为我们也不知道被引用数量的上限，还有就是无法解决循环引用无法回收的问题，这也是最严重的</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>JS</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>JS</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>插槽</title>
     <link href="/typblog/2022/10/19/20221019-%E6%8F%92%E6%A7%BD/"/>
     <url>/typblog/2022/10/19/20221019-%E6%8F%92%E6%A7%BD/</url>
