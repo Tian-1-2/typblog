@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Vscode踩坑日记--行尾序列LF和CRLF</title>
+    <link href="/typblog.github.io/2022/12/11/20221211-Vscode%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0--%E8%A1%8C%E5%B0%BE%E5%BA%8F%E5%88%97LF%E5%92%8CCRLF/"/>
+    <url>/typblog.github.io/2022/12/11/20221211-Vscode%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0--%E8%A1%8C%E5%B0%BE%E5%BA%8F%E5%88%97LF%E5%92%8CCRLF/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"/><h2 id="Vscode踩坑日记–行尾序列LF和CRLF"><a href="#Vscode踩坑日记–行尾序列LF和CRLF" class="headerlink" title="Vscode踩坑日记–行尾序列LF和CRLF"></a>Vscode踩坑日记–行尾序列LF和CRLF</h2><p>今天一上午什么也没干，一直配置Vscode，之前因为代码提交问题，需要解决配置一下eslint，问题就来了。</p><p>插件，配置信息什么都写好了还是一堆错误？？让我很懵逼</p><p>大概是下面这个样子</p><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20221211120549415.png" alt="image-20221211120549415"></p><p>一开始就单纯以为是配置Elsint没有生效，于是重新配置，甚至把vscode重新安了一遍，可是错误还消失。</p><p>最后搞了一上午竟然是因为行尾序列!!</p><p>下面这个东西</p><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20221211120923006.png" alt="image-20221211120923006"></p><p>将CRLF切换成LF解决了??</p><p>我又百度了百度，终于搞清了原因，下面对这种两种换行模式做一下简单介绍吧</p><p><strong>LF和CRLF是什么</strong></p><p>CRLF 是 carriage return line feed 的缩写，中文意思是回车换行。</p><p>LF 是 line feed 的缩写，中文意思也是换行。</p><p>它们都是文本换行的方式。</p><p><strong>区别</strong></p><p>在文本处理中LF, CR&#x2F;LF是不同操作系统上使用的换行符.<br>Dos和windows采用回车+换行CR&#x2F;LF表示下一行,<br>而UNIX&#x2F;Linux采用换行符LF表示下一行，<br>苹果机(MAC OS系统)也**采用换行符LF表示下一行。</p><p>所以说到底，是因为操作系统的区别。</p><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20221211122021241.png" alt="image-20221211122021241"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>各种配置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Vscode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ReactHooks常用钩子</title>
     <link href="/typblog.github.io/2022/11/28/20221128-ReactHooks%E5%B8%B8%E7%94%A8%E9%92%A9%E5%AD%90/"/>
     <url>/typblog.github.io/2022/11/28/20221128-ReactHooks%E5%B8%B8%E7%94%A8%E9%92%A9%E5%AD%90/</url>
