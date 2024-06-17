@@ -1,0 +1,761 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="田云鹏">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一文教会女朋友学会日常Git使用！Git知识总结女朋友最近在学习git这块知识，我给他推荐了视频和廖雪峰的git文档，但是奈何新手刚开始学习，还是依然吃力，而日常工作中git这一部分使用其实并不难，所以也为了减轻女朋友的压力，这篇文章来了。 本文章涉及原理较少，主要是日常工作中直接使用，适合新手快速入门,如何想详细全面了解，还是推荐廖雪峰git讲解 一、git基本知识了解1.git简介Git是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一文教会女朋友学会日常Git使用！Git知识总结">
+<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2024/04/02/202442-%E4%B8%80%E6%96%87%E6%95%99%E4%BC%9A%E5%A5%B3%E6%9C%8B%E5%8F%8B%E5%AD%A6%E4%BC%9A%E6%97%A5%E5%B8%B8Git%E4%BD%BF%E7%94%A8%EF%BC%81Git%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一文教会女朋友学会日常Git使用！Git知识总结女朋友最近在学习git这块知识，我给他推荐了视频和廖雪峰的git文档，但是奈何新手刚开始学习，还是依然吃力，而日常工作中git这一部分使用其实并不难，所以也为了减轻女朋友的压力，这篇文章来了。 本文章涉及原理较少，主要是日常工作中直接使用，适合新手快速入门,如何想详细全面了解，还是推荐廖雪峰git讲解 一、git基本知识了解1.git简介Git是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240328141101581.png">
+<meta property="og:image" content="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401134113463.png">
+<meta property="og:image" content="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401142403154.png">
+<meta property="og:image" content="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401143104695.png">
+<meta property="article:published_time" content="2024-04-02T08:46:25.000Z">
+<meta property="article:modified_time" content="2024-04-29T07:27:59.568Z">
+<meta property="article:author" content="田云鹏">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240328141101581.png">
+  
+  
+  
+  <title>一文教会女朋友学会日常Git使用！Git知识总结 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
+  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+      <strong>田云鹏的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+                <i class="iconfont icon-book"></i>
+                留言板
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="一文教会女朋友学会日常Git使用！Git知识总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-02 16:46" pubdate>
+          2024年4月2日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">一文教会女朋友学会日常Git使用！Git知识总结</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <meta name="referrer" content="no-referrer"/>
+
+<h2 id="一文教会女朋友学会日常Git使用！Git知识总结"><a href="#一文教会女朋友学会日常Git使用！Git知识总结" class="headerlink" title="一文教会女朋友学会日常Git使用！Git知识总结"></a>一文教会女朋友学会日常Git使用！Git知识总结</h2><p>女朋友最近在学习git这块知识，我给他推荐了视频和廖雪峰的git文档，但是奈何新手刚开始学习，还是依然吃力，而日常工作中git这一部分使用其实并不难，所以也为了减轻女朋友的压力，这篇文章来了。</p>
+<p>本文章涉及原理较少，主要是日常工作中直接使用，适合新手快速入门,如何想详细全面了解，还是推荐<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰git讲解</a></p>
+<h3 id="一、git基本知识了解"><a href="#一、git基本知识了解" class="headerlink" title="一、git基本知识了解"></a>一、git基本知识了解</h3><h4 id="1-git简介"><a href="#1-git简介" class="headerlink" title="1.git简介"></a>1.git简介</h4><p>Git是一个分布式版本控制系统，简单来说就是代码版本控制系统，在日常工作中，开发人员就需要利用git将各个人的写的代码放到一起。再简单来说，就是用来提交代码的。</p>
+<h4 id="2-git区域了解"><a href="#2-git区域了解" class="headerlink" title="2.git区域了解"></a>2.git区域了解</h4><p>区域这块主要便于后续操作理解，主要分成下面四个区域</p>
+<ul>
+<li>工作区：处理工作的区域（即做项目打代码的区域，你写代码的地方）</li>
+<li>暂存区：已完成的工作临时存放区域，等待被提交（使用git add .操作后代码进入区域）</li>
+<li>本地仓库：存放数据的地方，但是还在本电脑上（使用git commit -m “xxx”操作后代码进入区域）</li>
+<li>Git远程仓库：最终的存放区域，即远程服务器(git push成功后代码推送的地方，就是代码仓库，比如Gitee、GitHub上建的仓库)</li>
+</ul>
+<p>下面这张图比较直观，可以做参考</p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240328141101581.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240328141101581"></p>
+<h4 id="3-git常用命令"><a href="#3-git常用命令" class="headerlink" title="3.git常用命令"></a>3.git常用命令</h4><p><strong>连接远程仓库</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">git remote <span class="hljs-built_in">add</span> xxx(例如：git remote <span class="hljs-built_in">add</span> origin 复制的ssh地址或者https地址)<br></code></pre></td></tr></table></figure>
+
+<p><strong>克隆远程仓库</strong></p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">clone</span> <span class="hljs-title">xxx</span>(例如：git <span class="hljs-keyword">clone</span> <span class="hljs-title">复制的ssh</span>地址或者https地址)<br></code></pre></td></tr></table></figure>
+
+<p><strong>创建分支并切换到该分支</strong> </p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">git checkout -<span class="hljs-keyword">b </span>分支名称<br><br>相当于 git <span class="hljs-keyword">branch </span>dev <br>	  git checkout dev<br></code></pre></td></tr></table></figure>
+
+<p><strong>切换分支</strong> </p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">git checkout develop</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>添加到暂存区</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">git <span class="hljs-built_in">add</span> .<br></code></pre></td></tr></table></figure>
+
+<p><strong>添加到本地仓库</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">git</span> commit <span class="hljs-string">&quot;....&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>拉取远程仓库内容</strong></p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">git pull <span class="hljs-comment">(例如：git pull origin dev 最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突 再推送)</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>推送到远程仓库</strong></p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">git <span class="hljs-built_in">push</span> (例如:git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> dev 上传到dev分支仓库)<br></code></pre></td></tr></table></figure>
+
+<p><strong>备份当前的工作区修改的内容</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">git</span> stash  备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。<br></code></pre></td></tr></table></figure>
+
+<p><strong>读取最近一次备份的内容</strong></p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">git stash <span class="hljs-built_in">pop</span>: 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。由于可能存在多个Stash的内容，所以用栈来管理，<span class="hljs-built_in">pop</span>会从最近的一个stash中读取内容并恢复<br></code></pre></td></tr></table></figure>
+
+<h3 id="二、常用工作场景"><a href="#二、常用工作场景" class="headerlink" title="二、常用工作场景"></a>二、常用工作场景</h3><h4 id="1-克隆远程仓库，把仓库代码拉到本地"><a href="#1-克隆远程仓库，把仓库代码拉到本地" class="headerlink" title="1.克隆远程仓库，把仓库代码拉到本地"></a>1.克隆远程仓库，把仓库代码拉到本地</h4><p>这里以码云为例复制shh或者https</p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401134113463.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240401134113463"></p>
+<p>执行下面克隆命令即可</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@gitee.com:typhome/pinball-games.git<br></code></pre></td></tr></table></figure>
+
+<p>克隆到本地，就可以进行本地代码修改了</p>
+<h4 id="2-推送代码到远程仓库"><a href="#2-推送代码到远程仓库" class="headerlink" title="2.推送代码到远程仓库"></a>2.推送代码到远程仓库</h4><p>推送代码到远端分为几种情况</p>
+<h5 id="（1）本地代码和远程仓库版本相同，在你之前没有其他人推上代码"><a href="#（1）本地代码和远程仓库版本相同，在你之前没有其他人推上代码" class="headerlink" title="（1）本地代码和远程仓库版本相同，在你之前没有其他人推上代码"></a>（1）本地代码和远程仓库版本相同，在你之前没有其他人推上代码</h5><p>这时执行三步骤即可</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">git <span class="hljs-keyword">add</span> .<br><br>git commit <span class="hljs-string">&quot;....&quot;</span><br><br>git <span class="hljs-keyword">push</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="（2）在你之前有其他人推上代码，但是和你修改的不是同一个文件"><a href="#（2）在你之前有其他人推上代码，但是和你修改的不是同一个文件" class="headerlink" title="（2）在你之前有其他人推上代码，但是和你修改的不是同一个文件"></a>（2）在你之前有其他人推上代码，但是和你修改的不是同一个文件</h5><p>这个时候需要先把别人的代码拉下来了，先进行git pull</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs avrasm">git pull<br><br>git <span class="hljs-keyword">add</span> .<br><br>git commit <span class="hljs-string">&quot;....&quot;</span><br><br>git <span class="hljs-keyword">push</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="（3）在你之前有其他人推上代码，和你修改的有同一个文件"><a href="#（3）在你之前有其他人推上代码，和你修改的有同一个文件" class="headerlink" title="（3）在你之前有其他人推上代码，和你修改的有同一个文件"></a>（3）在你之前有其他人推上代码，和你修改的有同一个文件</h5><p>这个时候直接git pull会报错，具体详细可以看我另一篇博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_49907632/article/details/129492150?spm=1001.2014.3001.5502">解决git pull时出现冲突无法pull的问题</a></p>
+<p>主要方法就是将代码提到git栈中进行储藏，然后拉下代码后再应用，</p>
+<p>主要步骤</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">git</span> stash<br><br><span class="hljs-symbol">git</span> pull<br><br><span class="hljs-symbol">git</span> <span class="hljs-keyword">add</span> .<br><br><span class="hljs-symbol">git</span> stash <span class="hljs-keyword">pop</span> <br>(解决冲突)<br><span class="hljs-symbol">git</span> <span class="hljs-keyword">add</span> .<br><br><span class="hljs-symbol">git</span> commit <span class="hljs-string">&quot;....&quot;</span><br><br><span class="hljs-symbol">git</span> <span class="hljs-keyword">push</span><br><br></code></pre></td></tr></table></figure>
+
+<h5 id="（3）在a分支修改了，但是我要修改的内容应该在b分支上"><a href="#（3）在a分支修改了，但是我要修改的内容应该在b分支上" class="headerlink" title="（3）在a分支修改了，但是我要修改的内容应该在b分支上"></a>（3）在a分支修改了，但是我要修改的内容应该在b分支上</h5><p>这个时候在a分支修改了，没有提交，直接切换到b分支上会报错切换不了，这个时候也需要用到stash了</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-comment">//先进行备份</span><br><span class="hljs-symbol">git</span> stash<br><span class="hljs-comment">//切分支</span><br><span class="hljs-symbol">git</span> checkout <span class="hljs-keyword">b</span><br><span class="hljs-comment">//拉下最新代码</span><br><span class="hljs-symbol">git</span> pull<br><span class="hljs-comment">//再应用推送即可</span><br><span class="hljs-symbol">git</span> <span class="hljs-keyword">add</span> .<br><br><span class="hljs-symbol">git</span> stash <span class="hljs-keyword">pop</span><br>(解决冲突)<br><span class="hljs-symbol">git</span> <span class="hljs-keyword">add</span> .<br><br><span class="hljs-symbol">git</span> commit <span class="hljs-string">&quot;....&quot;</span><br><br><span class="hljs-symbol">git</span> <span class="hljs-keyword">push</span><br><br></code></pre></td></tr></table></figure>
+
+<p>以上几种情况基本满足日常工作需求，主要就是代码拉取和推送</p>
+<h3 id="三、Git图形工具推荐"><a href="#三、Git图形工具推荐" class="headerlink" title="三、Git图形工具推荐"></a>三、Git图形工具推荐</h3><p>平常敲命令可能过于麻烦，或者不那么直观，这里推荐两个我常用的，提高开发效率，但是建议在git命令熟悉后或者使用一段时间后，再使用图形界面操作git</p>
+<h4 id="1-vscode上自带的"><a href="#1-vscode上自带的" class="headerlink" title="1.vscode上自带的"></a>1.vscode上自带的</h4><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401142403154.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240401142403154"></p>
+<p>可以看修改代码对比、切换分支、提交、stash等等，也是非常直观方便</p>
+<h4 id="2-Soucetree"><a href="#2-Soucetree" class="headerlink" title="2.Soucetree"></a>2.Soucetree</h4><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401143104695.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240401143104695"></p>
+<p>Soucetree是我最常用的git图形界面了，相比于vscode自带的更直观了，对于分支的操作更方便。</p>
+<p>我认为唯一不足的就是修改代码对比，soucetree只显示修改行对比，而vscode的左右代码整个文件对比</p>
+<p>感觉更直观一点。</p>
+<p>这两种方式具体操作这里不具体介绍了，大家自行百度即可。有什么看法也欢迎讨论~</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/Tian-1-2/typblog/categories/git/" class="category-chain-item">git</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/Tian-1-2/typblog/tags/git/">#git</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>一文教会女朋友学会日常Git使用！Git知识总结</div>
+      <div>https://github.com/Tian-1-2/typblog/2024/04/02/202442-一文教会女朋友学会日常Git使用！Git知识总结/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>田云鹏</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Tian-1-2/typblog/2024/05/16/2024516-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0%E5%AD%90%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%8D%B4%E5%88%B0%E4%B8%BB%E5%9F%9F%E5%90%8D%E4%B8%8B%EF%BC%9F%E6%AD%A3%E5%B8%B8%E8%83%BD%E8%AE%BF%E9%97%AE%E4%B8%80%E5%88%B7%E6%96%B0%E5%B0%B1404%EF%BC%9F%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9B%B0%E6%89%B0/" title="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Tian-1-2/typblog/2024/03/27/2024327-echarts%E5%AE%9E%E7%8E%B0%E4%B8%A4%E4%B8%AAy%E8%BD%B40%E5%88%BB%E5%BA%A6%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4%EF%BC%88%E5%A4%9A%E6%9D%A1%E6%95%B0%E6%8D%AE%E6%97%B6%EF%BC%89/" title="echarts实现两个y轴0刻度保持一致（多条数据时）">
+                        <span class="hidden-mobile">echarts实现两个y轴0刻度保持一致（多条数据时）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"eCwG0nnpzuXX3P72P4DIj1Ct-gzGzoHsz","appKey":"qYCJDnCnKc5wQSRsaOCYPoRz","path":"window.location.pathname","placeholder":"你有什么想说得在这留下吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/Tian-1-2/typblog/js/events.js" ></script>
+<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

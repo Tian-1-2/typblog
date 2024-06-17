@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="田云鹏">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="[TOC] 项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰今天在做项目部署到一个服务器子目录时，遇到了两个问题，这里做下记录 一、路由模式介绍这里以Vue Router v4版本为例 在Vue Router v4版本有三种模式，官网已经做了详细介绍 Hash 模式hash 模式是用 createWebHashHistory() 创建的： 12345678imp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰">
+<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2024/05/16/2024516-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0%E5%AD%90%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%8D%B4%E5%88%B0%E4%B8%BB%E5%9F%9F%E5%90%8D%E4%B8%8B%EF%BC%9F%E6%AD%A3%E5%B8%B8%E8%83%BD%E8%AE%BF%E9%97%AE%E4%B8%80%E5%88%B7%E6%96%B0%E5%B0%B1404%EF%BC%9F%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9B%B0%E6%89%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[TOC] 项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰今天在做项目部署到一个服务器子目录时，遇到了两个问题，这里做下记录 一、路由模式介绍这里以Vue Router v4版本为例 在Vue Router v4版本有三种模式，官网已经做了详细介绍 Hash 模式hash 模式是用 createWebHashHistory() 创建的： 12345678imp">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-16T08:46:25.000Z">
+<meta property="article:modified_time" content="2024-05-16T08:32:02.825Z">
+<meta property="article:author" content="田云鹏">
+<meta property="article:tag" content="项目部署">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
+  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+      <strong>田云鹏的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+                <i class="iconfont icon-book"></i>
+                留言板
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-16 16:46" pubdate>
+          2024年5月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>[TOC]</p>
+<h2 id="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰"><a href="#项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰" class="headerlink" title="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰"></a>项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰</h2><p>今天在做项目部署到一个服务器子目录时，遇到了两个问题，这里做下记录</p>
+<h3 id="一、路由模式介绍"><a href="#一、路由模式介绍" class="headerlink" title="一、路由模式介绍"></a>一、路由模式介绍</h3><p>这里以Vue Router v4版本为例</p>
+<p>在Vue Router v4版本有三种模式，官网已经做了详细介绍</p>
+<h4 id="Hash-模式"><a href="#Hash-模式" class="headerlink" title="Hash 模式"></a>Hash 模式</h4><p>hash 模式是用 <code>createWebHashHistory()</code> 创建的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; createRouter, createWebHashHistory &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-router&#x27;</span><br><br><span class="hljs-keyword">const</span> router = <span class="hljs-title function_">createRouter</span>(&#123;<br>  <span class="hljs-attr">history</span>: <span class="hljs-title function_">createWebHashHistory</span>(),<br>  <span class="hljs-attr">routes</span>: [<br>    <span class="hljs-comment">//...</span><br>  ],<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>它在内部传递的实际 URL 之前使用了一个哈希字符（<code>#</code>）。由于这部分 URL 从未被发送到服务器，所以它不需要在服务器层面上进行任何特殊处理。不过，<strong>它在 SEO 中确实有不好的影响</strong>。如果你担心这个问题，可以使用 HTML5 模式。</p>
+<h4 id="Memory-模式"><a href="#Memory-模式" class="headerlink" title="Memory 模式"></a>Memory 模式</h4><p>Memory 模式不会假定自己处于浏览器环境，因此不会与 URL 交互<strong>也不会自动触发初始导航</strong>。这使得它非常适合 Node 环境和 SSR。它是用 <code>createMemoryHistory()</code> 创建的，并且<strong>需要你在调用 <code>app.use(router)</code> 之后手动 push 到初始导航</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; createRouter, createMemoryHistory &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-router&#x27;</span><br><span class="hljs-keyword">const</span> router = <span class="hljs-title function_">createRouter</span>(&#123;<br>  <span class="hljs-attr">history</span>: <span class="hljs-title function_">createMemoryHistory</span>(),<br>  <span class="hljs-attr">routes</span>: [<br>    <span class="hljs-comment">//...</span><br>  ],<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>虽然不推荐，你仍可以在浏览器应用程序中使用此模式，但请注意<strong>它不会有历史记录</strong>，这意味着你无法<em>后退</em>或<em>前进</em>。</p>
+<h4 id="HTML5-模式（v3版本中称为History模式）"><a href="#HTML5-模式（v3版本中称为History模式）" class="headerlink" title="HTML5 模式（v3版本中称为History模式）"></a>HTML5 模式（v3版本中称为History模式）</h4><p>用 <code>createWebHistory()</code> 创建 HTML5 模式，推荐使用这个模式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; createRouter, createWebHistory &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-router&#x27;</span><br><br><span class="hljs-keyword">const</span> router = <span class="hljs-title function_">createRouter</span>(&#123;<br>  <span class="hljs-attr">history</span>: <span class="hljs-title function_">createWebHistory</span>(),<br>  <span class="hljs-attr">routes</span>: [<br>    <span class="hljs-comment">//...</span><br>  ],<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>当使用这种历史模式时，URL 会看起来很 “正常”，例如 <code>https://example.com/user/id</code>。漂亮!</p>
+<p>不过，问题来了。由于我们的应用是一个单页的客户端应用，如果没有适当的服务器配置，用户在浏览器中直接访问 <code>https://example.com/user/id</code>，就会得到一个 404 错误。这就尴尬了。</p>
+<p>不用担心：要解决这个问题，你需要做的就是在你的服务器上添加一个简单的回退路由。如果 URL 不匹配任何静态资源，它应提供与你的应用程序中的 <code>index.html</code> 相同的页面。漂亮依旧!</p>
+<p>更详细参考<a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/history-mode.html#HTML5-%E6%A8%A1%E5%BC%8F">官网介绍</a></p>
+<h3 id="二、遇到的问题"><a href="#二、遇到的问题" class="headerlink" title="二、遇到的问题"></a>二、遇到的问题</h3><h4 id="1-项目部署到子目录，路由跳转却到主域名下解决方法"><a href="#1-项目部署到子目录，路由跳转却到主域名下解决方法" class="headerlink" title="1.项目部署到子目录，路由跳转却到主域名下解决方法"></a>1.项目部署到子目录，路由跳转却到主域名下解决方法</h4><p>如果是history模式，需要加上当前部署的子目录，</p>
+<p>createWebHistory（）方法可以传入base参数，官网如下介绍：</p>
+<p>base：基准路径，它被预置到每个 URL 上。这允许在一个域名子文件夹中托管 SPA，例如将 <code>base</code> 设置为 <code>/sub-folder</code> 使得其托管在 <code>example.com/sub-folder</code>。</p>
+<p>所以代码如下：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>获取当前路径<br>let path = location.pathname.substring(<span class="hljs-number">0</span>, location.pathname.lastIndexOf(<span class="hljs-string">&#x27;/&#x27;</span>) + <span class="hljs-number">1</span>)<br>const router = createRouter(&#123;<br>  history: createWebHistory(path),<br>  routes: [<br>    <span class="hljs-regexp">//</span>...<br>  ],<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>！打包配置这里路径也需要注意下</p>
+<p>这里我用的是vite</p>
+<p>defineConfig中的base配置路径，有三种写法如下</p>
+<ul>
+<li>绝对 URL 路径名，例如 <code>/foo/</code></li>
+<li>完整的 URL，例如 <code>https://foo.com/</code>（原始的部分在开发环境中不会被使用）</li>
+<li>空字符串或 <code>./</code>（用于嵌入形式的开发）</li>
+</ul>
+<p>举例：</p>
+<p>如果你的应用被部署在 <a target="_blank" rel="noopener" href="https://www.xxxx/admin/%EF%BC%8C%E5%88%99%E8%AE%BE%E7%BD%AE">https://www.xxxx/admin/，则设置</a> base可以设为为 </p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scheme"><span class="hljs-symbol">&#x27;/admin/</span>&#x27;<br>&#x27;&#x27;<br><span class="hljs-symbol">&#x27;./</span>&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>这三种其一即可</p>
+<h4 id="2-正常能访问一刷新就404解决方法"><a href="#2-正常能访问一刷新就404解决方法" class="headerlink" title="2.正常能访问一刷新就404解决方法"></a>2.正常能访问一刷新就404解决方法</h4><p>这个是因为没后端没进行配置，加载单页应用后路由改变均由浏览器处理，而刷新时将会请求当前的链接，而Nginx无法找到对应的页面</p>
+<p>这时候需要在在Nginx配置文件nginx.conf中加入如下配置：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span><span class="hljs-regexp">/ /i</span>ndex.html;<br></code></pre></td></tr></table></figure>
+
+<p>这里做下举例:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">location ^~<span class="hljs-regexp">/xxxx/</span> &#123;<br>      root  /xx<br>      try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span><span class="hljs-regexp">/ /i</span>ndex.html;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>还有另一种方法可以同时解决上述两个问题，比如说就不想操作Nginx配置了，那就是更换称为<strong>hash</strong>模式</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dts">const <span class="hljs-attr">router</span> <span class="hljs-operator">=</span> createRouter(<span class="hljs-punctuation">&#123;</span><br><span class="hljs-symbol">  history:</span> createWebHashHistory(path),<br><span class="hljs-symbol">  routes:</span> [<br>    <span class="hljs-comment">//...</span><br>  ],<br><span class="hljs-punctuation">&#125;</span>)<span class="hljs-punctuation">;</span><br></code></pre></td></tr></table></figure>
+
+<p>但是会有一些缺点，如上面介绍，自行选择</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/Tian-1-2/typblog/categories/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" class="category-chain-item">项目部署</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/Tian-1-2/typblog/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">#项目部署</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰</div>
+      <div>https://github.com/Tian-1-2/typblog/2024/05/16/2024516-项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>田云鹏</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月16日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Tian-1-2/typblog/2024/06/12/20240612%E8%A2%ABnode-sass%E6%8A%98%E7%A3%A8%E7%9A%84%E4%B8%80%E5%A4%A9/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Tian-1-2/typblog/2024/04/02/202442-%E4%B8%80%E6%96%87%E6%95%99%E4%BC%9A%E5%A5%B3%E6%9C%8B%E5%8F%8B%E5%AD%A6%E4%BC%9A%E6%97%A5%E5%B8%B8Git%E4%BD%BF%E7%94%A8%EF%BC%81Git%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" title="一文教会女朋友学会日常Git使用！Git知识总结">
+                        <span class="hidden-mobile">一文教会女朋友学会日常Git使用！Git知识总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"eCwG0nnpzuXX3P72P4DIj1Ct-gzGzoHsz","appKey":"qYCJDnCnKc5wQSRsaOCYPoRz","path":"window.location.pathname","placeholder":"你有什么想说得在这留下吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/Tian-1-2/typblog/js/events.js" ></script>
+<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

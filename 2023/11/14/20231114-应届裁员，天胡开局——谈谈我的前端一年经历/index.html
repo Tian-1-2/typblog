@@ -1,0 +1,709 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="田云鹏">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="应届裁员，天胡开局——谈谈我的前端一年经历许久没有更新了，最近一个月都在忙，没错，正如题目所说，裁员然后找工作…… 这周刚重新上班，工作第二天，感慨良多，记录些什么吧。 去年十月，拿到第一个实习offer，只身前往南京，开始了自己的前端职业生涯。期待又惶恐。所幸公司很nice，公司氛围很不错，带我的大哥来的第一天还请我吃了顿饭，很是感激。业务上前辈们对我也很有耐心，我工作了一个月，压力也不是很大。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应届裁员，天胡开局——谈谈我的前端一年经历">
+<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2023/11/14/20231114-%E5%BA%94%E5%B1%8A%E8%A3%81%E5%91%98%EF%BC%8C%E5%A4%A9%E8%83%A1%E5%BC%80%E5%B1%80%E2%80%94%E2%80%94%E8%B0%88%E8%B0%88%E6%88%91%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B8%80%E5%B9%B4%E7%BB%8F%E5%8E%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="应届裁员，天胡开局——谈谈我的前端一年经历许久没有更新了，最近一个月都在忙，没错，正如题目所说，裁员然后找工作…… 这周刚重新上班，工作第二天，感慨良多，记录些什么吧。 去年十月，拿到第一个实习offer，只身前往南京，开始了自己的前端职业生涯。期待又惶恐。所幸公司很nice，公司氛围很不错，带我的大哥来的第一天还请我吃了顿饭，很是感激。业务上前辈们对我也很有耐心，我工作了一个月，压力也不是很大。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/typhome/typora-image-library/raw/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20231114220541.jpg">
+<meta property="article:published_time" content="2023-11-14T08:46:25.000Z">
+<meta property="article:modified_time" content="2023-12-25T08:15:10.692Z">
+<meta property="article:author" content="田云鹏">
+<meta property="article:tag" content="生活">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/typhome/typora-image-library/raw/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20231114220541.jpg">
+  
+  
+  
+  <title>应届裁员，天胡开局——谈谈我的前端一年经历 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
+  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+      <strong>田云鹏的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+                <i class="iconfont icon-book"></i>
+                留言板
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="应届裁员，天胡开局——谈谈我的前端一年经历"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-14 16:46" pubdate>
+          2023年11月14日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">应届裁员，天胡开局——谈谈我的前端一年经历</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="应届裁员，天胡开局——谈谈我的前端一年经历"><a href="#应届裁员，天胡开局——谈谈我的前端一年经历" class="headerlink" title="应届裁员，天胡开局——谈谈我的前端一年经历"></a>应届裁员，天胡开局——谈谈我的前端一年经历</h3><p>许久没有更新了，最近一个月都在忙，没错，正如题目所说，裁员然后找工作……</p>
+<p>这周刚重新上班，工作第二天，感慨良多，记录些什么吧。</p>
+<p>去年十月，拿到第一个实习offer，只身前往南京，开始了自己的前端职业生涯。期待又惶恐。所幸公司很nice，公司氛围很不错，带我的大哥来的第一天还请我吃了顿饭，很是感激。业务上前辈们对我也很有耐心，我工作了一个月，压力也不是很大。以现在的角度来看是一个非常棒的公司，可是我还是因为我个人问题很快就离职了。还记得当时的leader一直在劝我，也有好多朋友劝我不要离职，最终自己还是执意离职了。</p>
+<p>离职后第二天我就回到了学习的地方，重新准备，看面试题、投简历……</p>
+<p>这次有了实习经历后找工作似乎格外的顺，当时一周面试的应该有十多场，当时还正值疫情爆发，每天偷摸跑办公室去面试，拿到了4个offer。然后这似乎又是一次决定命运的选择。有三家上海的，一家北京的，其中上海有一家公司也算是个中型的科技公司，当时的一面面试官是老乡，二面技术总监聊的也很愉快，技术栈用react，会给我足够的时间来学习，当时我也很想学react，对这家印象很好。可是后来却去了北京这家公司，就是我上家公司了。</p>
+<p>北京这家是创业公司，刚成立不到一年，当时也没想那么多会不会倒闭什么的，面试的时候老板也很随和，当时主要一个心也是去北京，想在北京发展，薪资方面也挺不错。所以经过考虑还是去北京了。</p>
+<p>当时是十二月疫情正全面爆发，所以我一直居家办公，老板人很好，我过年后才去北京。到了北京又工作了一个月实习期结束，和老板正式谈转正薪资，给了一个非常满意的薪资。当时非常激动，终于要迎来自己的第一份正式工作了，当时还发了个朋友圈</p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20231114220541.jpg" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="微信图片_20231114220541"></p>
+<p>后来又回校处理毕业的事，六月就带着毕业证来成为正式员工了，当时我非常开心，给我的感觉就是在这个公司上班很舒服，同事们非常好，公司当时说也要融资，然后怎么样怎么样，似乎一切正往最美好的发展，当时我也遇见了我的女朋友，似乎已经走上了人生巅峰哈哈。</p>
+<p>可是好景不长，八月中旬吧突然通知，后续业绩不好了，可能要进行裁员了，当时给我的感觉就像是突然从梦中醒来……开始提心吊胆了，就这样紧张度过了八月份，后来业务似乎好转，老板说先不裁员了，看业务似乎还不错，然后……业务没有预料的那样好转，国庆后突然一个紧急的会议，要进行裁员了……</p>
+<p>公司很人性，给够补偿，就这样我的第一份正式工作结束了。也结束了我北漂的生涯。</p>
+<p>为了离我女朋友更近一些，选择了南京、杭州、上海这三个地方作为下一份工作的地方。</p>
+<p>然后开始准备简历投简历，不得不说，处在如此一个尴尬点上，找工作是真的难，刚毕业经验不多，又不能以应届生经验找，每天boss投到上限，就三四个要我简历，最后都感觉投遍了……</p>
+<p>在北京投了两周后，为了更方便面试，决定南下。在北京收拾、转租、搬家、奔向上海。</p>
+<p>面试很曲折，当时我都感觉人生如此迷茫，有一家南京的，我从上海跑过去，参加线下面试，然后就人事了解一下信息，说最多给我5k多并说这都是这个薪资，并表示后面还可能有技术面，让我回去等消息吧。我nm当时就想骂人，这起码是在南京呀，真这么不值钱吗，之前在南京实习的薪资都快赶上这个了，而且就只是人事了解信息，还要现场跑一趟，还有她当时高傲的样子……越想越气。</p>
+<p>后面又面了一家外包和我现在这家公司，外包当场就说我不错可以，然后后面也谈薪了，说可以满足我的要求，然后说后面发邮件现在还没发……</p>
+<p>然后就是这家，面试现场面，一个是前端组长一个部门leader，说一次面了不用让我跑两趟了，面试很愉快，当时leader就表示，他这边没问题，就是薪资可能达不到我要求，就看后续怎么样了。后面就hr开始给我谈薪了，跟上一家降薪降了不少，没办法，失业时间越久越焦虑就接受了。</p>
+<p>这次找工作花了一个月，感觉是我最难熬的一段时间，已读不回，每天只能投出去三四份简历，回消息的也就那几个，不是应届生，工作经验又不是太长，真的太难了……</p>
+<p>失业的时候我在想，是不是当时选择就错了，如果留在南京那家公司，或者选择上海那家公司，就没那么多曲折的事了，我甚至一度懊悔，自己的选择让自己走了那么多弯路。</p>
+<p>最后还是想明白了，依然是那句话。</p>
+<p>”如果重来一次的话，以我当时的心智和阅历，还是会做出同样的选择。“</p>
+<p>虽然现在生活还不是那么完美，甚至与之前有所差，但是我又有些庆幸，我现在离我很爱我的女朋友很近，离我很好的朋友们很近，情感上的慰藉足以弥补收入上的差距。</p>
+<p>况且这也只是暂时的，我的人生也刚刚开始。</p>
+<p>生如逆旅单行道，哪有岁月可回头，</p>
+<p>加油。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/Tian-1-2/typblog/categories/%E7%94%9F%E6%B4%BB/" class="category-chain-item">生活</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/Tian-1-2/typblog/tags/%E7%94%9F%E6%B4%BB/">#生活</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>应届裁员，天胡开局——谈谈我的前端一年经历</div>
+      <div>https://github.com/Tian-1-2/typblog/2023/11/14/20231114-应届裁员，天胡开局——谈谈我的前端一年经历/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>田云鹏</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Tian-1-2/typblog/2023/12/12/20231212-Echarts%E5%B0%8F%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="Echarts小问题汇总">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Echarts小问题汇总</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Tian-1-2/typblog/2023/10/07/2023107-%E5%A4%9A%E6%AC%A1%E9%87%8D%E5%A4%8D%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88/" title="多次重复请求接口优化方案">
+                        <span class="hidden-mobile">多次重复请求接口优化方案</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"eCwG0nnpzuXX3P72P4DIj1Ct-gzGzoHsz","appKey":"qYCJDnCnKc5wQSRsaOCYPoRz","path":"window.location.pathname","placeholder":"你有什么想说得在这留下吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/Tian-1-2/typblog/js/events.js" ></script>
+<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

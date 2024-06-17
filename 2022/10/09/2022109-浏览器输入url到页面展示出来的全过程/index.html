@@ -1,0 +1,798 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="田云鹏">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="浏览器输入url到页面展示出来的全过程基本流程：1、用户在浏览器中输入url地址2、浏览器解析域名得到服务器ip地址解析域名的过程如下：  首先搜索浏览器的 DNS 缓存，缓存中维护一张域名与 IP 地址的对应表  若没有命中，则继续搜索操作系统的 DNS 缓存  若仍然没有命中，则操作系统将域名发送至本地域名服务器，本地域名服务器采用递归查询自己的 DNS 缓存，查找成功则返回结果  若本地域名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器输入url到页面展示出来的全过程">
+<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2022/10/09/2022109-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E5%87%BA%E6%9D%A5%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="浏览器输入url到页面展示出来的全过程基本流程：1、用户在浏览器中输入url地址2、浏览器解析域名得到服务器ip地址解析域名的过程如下：  首先搜索浏览器的 DNS 缓存，缓存中维护一张域名与 IP 地址的对应表  若没有命中，则继续搜索操作系统的 DNS 缓存  若仍然没有命中，则操作系统将域名发送至本地域名服务器，本地域名服务器采用递归查询自己的 DNS 缓存，查找成功则返回结果  若本地域名">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.vue-js.com/bec3c740-b78f-11eb-ab90-d9ae814b240d.png">
+<meta property="article:published_time" content="2022-10-09T08:46:25.000Z">
+<meta property="article:modified_time" content="2023-12-25T08:15:10.692Z">
+<meta property="article:author" content="田云鹏">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://static.vue-js.com/bec3c740-b78f-11eb-ab90-d9ae814b240d.png">
+  
+  
+  
+  <title>浏览器输入url到页面展示出来的全过程 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
+  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+      <strong>田云鹏的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+                <i class="iconfont icon-book"></i>
+                留言板
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="浏览器输入url到页面展示出来的全过程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-09 16:46" pubdate>
+          2022年10月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">浏览器输入url到页面展示出来的全过程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="浏览器输入url到页面展示出来的全过程"><a href="#浏览器输入url到页面展示出来的全过程" class="headerlink" title="浏览器输入url到页面展示出来的全过程"></a>浏览器输入url到页面展示出来的全过程</h2><h4 id="基本流程："><a href="#基本流程：" class="headerlink" title="基本流程："></a>基本流程：</h4><h5 id="1、用户在浏览器中输入url地址"><a href="#1、用户在浏览器中输入url地址" class="headerlink" title="1、用户在浏览器中输入url地址"></a>1、用户在浏览器中输入url地址</h5><h5 id="2、浏览器解析域名得到服务器ip地址"><a href="#2、浏览器解析域名得到服务器ip地址" class="headerlink" title="2、浏览器解析域名得到服务器ip地址"></a>2、浏览器解析域名得到服务器ip地址</h5><p>解析域名的过程如下：</p>
+<ul>
+<li><p>首先搜索浏览器的 DNS 缓存，缓存中维护一张域名与 IP 地址的对应表</p>
+</li>
+<li><p>若没有命中，则继续搜索操作系统的 DNS 缓存</p>
+</li>
+<li><p>若仍然没有命中，则操作系统将域名发送至本地域名服务器，本地域名服务器采用递归查询自己的 DNS 缓存，查找成功则返回结果</p>
+</li>
+<li><p>若本地域名服务器的 DNS 缓存没有命中，则本地域名服务器向上级域名服务器进行迭代查询</p>
+<ul>
+<li>首先本地域名服务器向根域名服务器发起请求，根域名服务器返回顶级域名服务器的地址给本地服务器</li>
+<li>本地域名服务器拿到这个顶级域名服务器的地址后，就向其发起请求，获取权限域名服务器的地址</li>
+<li>本地域名服务器根据权限域名服务器的地址向其发起请求，最终得到该域名对应的 IP 地址</li>
+</ul>
+</li>
+<li><p>本地域名服务器将得到的 IP 地址返回给操作系统，同时自己将 IP 地址缓存起来</p>
+</li>
+<li><p>操作系统将 IP 地址返回给浏览器，同时自己也将 IP 地址缓存起</p>
+</li>
+<li><p>至此，浏览器就得到了域名对应的 IP 地址，并将 IP 地址缓存起</p>
+<p>流程图如下：</p>
+<p><img src="https://static.vue-js.com/bec3c740-b78f-11eb-ab90-d9ae814b240d.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="img"></p>
+</li>
+</ul>
+<h5 id="3、TCP三次握手建立客户端和服务器的连接"><a href="#3、TCP三次握手建立客户端和服务器的连接" class="headerlink" title="3、TCP三次握手建立客户端和服务器的连接"></a>3、TCP三次握手建立客户端和服务器的连接</h5><p>因为HTTP是基于TCP的可靠传输，所以在发送http数据报之前，需要先进行TCP的三次握手建立连接。三次握手过程如下：</p>
+<p>第一次握手：客户端—&gt;服务端 ack&#x3D;1,seq&#x3D;x（x随机生成）</p>
+<p>第二次握手：服务端—&gt;客户端 ACK&#x3D;1,ack&#x3D;x+1,seq&#x3D;y（y随机生成）</p>
+<p>第三次握手：客户端—&gt;服务端 ACK&#x3D;1,ack&#x3D;y+1,seq&#x3D;x+1</p>
+<p>完成第三次握手时，实际上客户端已经与服务器建立了连接，所以第三次握手的报文已经可以携带数据了。</p>
+<h5 id="4、客户端发送HTTP请求获取服务器端的静态资源"><a href="#4、客户端发送HTTP请求获取服务器端的静态资源" class="headerlink" title="4、客户端发送HTTP请求获取服务器端的静态资源"></a>4、客户端发送HTTP请求获取服务器端的静态资源</h5><h5 id="5、服务器发送HTTP响应报文给客户端，客户端获取到页面静态资源"><a href="#5、服务器发送HTTP响应报文给客户端，客户端获取到页面静态资源" class="headerlink" title="5、服务器发送HTTP响应报文给客户端，客户端获取到页面静态资源"></a>5、服务器发送HTTP响应报文给客户端，客户端获取到页面静态资源</h5><h5 id="6、TCP四次挥手关闭客户端和服务器的连接"><a href="#6、TCP四次挥手关闭客户端和服务器的连接" class="headerlink" title="6、TCP四次挥手关闭客户端和服务器的连接"></a>6、TCP四次挥手关闭客户端和服务器的连接</h5><p>数据传输完毕后，TCP会进行四次挥手断开连接，释放资源。四次挥手过程如下：</p>
+<p>第一次挥手：客户端—&gt;服务器 FIN&#x3D;1,ack&#x3D;1,seq&#x3D;u 客户端状态变为FIN_WAIT_1</p>
+<p>第二次挥手：服务器—&gt;客户端 ACK&#x3D;1,ack&#x3D;u+1,seq&#x3D;v 服务器状态变为CLOSE_WAIT，TCP进入半关闭状态</p>
+<p>第三次挥手：服务器—&gt;客户端 FIN&#x3D;1,ACK&#x3D;1,ack&#x3D;u+1,seq&#x3D;w 服务器状态变为LAST_ACK</p>
+<p>第四次挥手：客户端—&gt;服务器 ACK&#x3D;1,ack&#x3D;w+1,seq&#x3D;u+1 客户端状态变为TIME_WAIT，此时TCP未释放，需要等待计时器计时完成后，客户端状态变为CLOSED</p>
+<h5 id="7、浏览器解析文档资源并渲染页面"><a href="#7、浏览器解析文档资源并渲染页面" class="headerlink" title="7、浏览器解析文档资源并渲染页面"></a>7、浏览器解析文档资源并渲染页面</h5><p>浏览器解析文档资源并渲染页面流程：</p>
+<p>（1）解析html资源，构建DOM Tree</p>
+<p>（2）解析css资源，构建CSS Rule Tree</p>
+<p>（3）JS通过DOM API和CSS OM API来操作DOM Tree和CSS Tree</p>
+<p>（4）解析完成后综合DOM Tree和CSS Tree会生成Render Tree，计算每个元素的位置，这个过程就是回流（layout or reflow）</p>
+<p>（5）调用操作系统Native GUI的绘制</p>
+<p>（6）页面绘制完成</p>
+<h4 id="涉及到的其他知识点："><a href="#涉及到的其他知识点：" class="headerlink" title="涉及到的其他知识点："></a>涉及到的其他知识点：</h4><h5 id="1、Render-Tree的生成"><a href="#1、Render-Tree的生成" class="headerlink" title="1、Render Tree的生成"></a>1、Render Tree的生成</h5><p>DOM Tree和CSS Tree结合会生成Render Tree，是由可视化元素按照其顺序生成的树形结构，非可视化元素是不会出现到渲染树中的。</p>
+<p>非可视化元素：head、display：none；（注意：visibility：hidden的元素会出现在渲染树中）</p>
+<h5 id="2、回流和重绘"><a href="#2、回流和重绘" class="headerlink" title="2、回流和重绘"></a>2、回流和重绘</h5><p>回流（reflow，也叫重排、布局）：某部分的变化影响了布局，浏览器需要重新渲染。（如元素大小、位置的改变）</p>
+<p>重绘（repaint）：元素的某一部分发生改变，尺寸、位置没有改变。（字体颜色、背景颜色的改变）</p>
+<p>引起回流的几个主要原因：</p>
+<p>（1）网页初始化</p>
+<p>（2）JS操作DOM树（增加、删除元素等）</p>
+<p>（3）某些元素的尺寸改变</p>
+<p>（4）CSS属性的改变</p>
+<p>浏览器的“dirty”系统：</p>
+<p>为了避免页面细小的改变就引起回流和重绘，“dirty”系统会将这些改变操作积攒一批再进行操作，这又叫异步reflow或者增量异步reflow。有些特殊情况不会这么做：resize窗口、改变了页面默认的字体等，这些操作会直接触发回流。</p>
+<p>编写代码时如何减少回流和重绘：</p>
+<p>（1）修改样式不要逐条修改，定义CSS样式的class，直接修改元素的className</p>
+<p>（2）不要将DOM节点的属性值放在循环中当成循环的变量</p>
+<p>（3）为动画的HTML元素使用fixed或absolute的position属性，修改它们的CSS就不会触发reflow</p>
+<p>（4）把DOM离线后修改，设置display：none或者clone元素到内存中，修改完成再显示回页面</p>
+<p>（5）不要使用table布局，一个微小的改变就可能引起整个table的重新布局</p>
+<h5 id="3、性能优化"><a href="#3、性能优化" class="headerlink" title="3、性能优化"></a>3、性能优化</h5><p>（1）提升HTML的加载速度</p>
+<ul>
+<li><p>页面精简，删除不必要的内容，将内嵌的JS和CSS移至外部文件，使用压缩工具等</p>
+</li>
+<li><p>减少文件数量，合并文件，减少请求次数</p>
+</li>
+<li><p>减少域名查询，外部引入的资源尽量少使用不同的域名</p>
+</li>
+<li><p>使用缓存，重用数据</p>
+</li>
+<li><p>优化页面元素的加载顺序</p>
+</li>
+<li><p>使用合法的标签</p>
+</li>
+<li><p>根据浏览器类型选择合适的策略</p>
+</li>
+</ul>
+<p>（2）编写合理的CSS</p>
+<ul>
+<li><p>DOM的深度尽量浅</p>
+</li>
+<li><p>使用合法的CSS属性</p>
+</li>
+<li><p>不要为ID选择器指定类名或标签名</p>
+</li>
+<li><p>避免使用后代选择器，尽量使用子选择器</p>
+</li>
+<li><p>避免使用通配符</p>
+</li>
+</ul>
+<p>（3）关于JS标签</p>
+<ul>
+<li><p>js标签的加载和执行特点：载入后立即执行，执行时会阻塞页面后续内容</p>
+</li>
+<li><p>将所有的js标签放在页面底部，保证脚本执行前已完成DOM渲染</p>
+</li>
+<li><p>尽可能合并脚本</p>
+</li>
+<li><p>减少内联js的使用</p>
+</li>
+<li><p>注意多个js标签的引入顺序</p>
+</li>
+<li><p>使用defer属性，该属性可以使脚本在文档完全呈现以后再执行</p>
+</li>
+<li><p>使用async属性，可以使当前脚本不必等待其他脚本的执行，也不必阻塞文档的呈现</p>
+</li>
+</ul>
+<p><strong>这里再对defer和async做一下细致的划分</strong></p>
+<p>正常情况下script会阻碍HTML解析，等script下载完毕且执行完后才会继续解析HTML</p>
+<p>而defer与async 都不会阻碍HTML解析（异步加载）</p>
+<p>他们的区别在与：</p>
+<ul>
+<li>async 执行与文档顺序无关，先加载哪个就先执行哪个；defer会按照文档中的顺序执行</li>
+<li>async 脚本加载完成后立即执行，可以在DOM尚未完全下载完成就加载和执行；而defer脚本需	要等到文档所有元素解析完成之后才执行</li>
+<li>可以概括：async:谁先加载完谁执行   defer：先下载 等dom加载完后再按顺序执行</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/Tian-1-2/typblog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/Tian-1-2/typblog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">#计算机网络</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>浏览器输入url到页面展示出来的全过程</div>
+      <div>https://github.com/Tian-1-2/typblog/2022/10/09/2022109-浏览器输入url到页面展示出来的全过程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>田云鹏</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Tian-1-2/typblog/2022/10/10/20221010-Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Vue的生命周期">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue的生命周期</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Tian-1-2/typblog/2022/10/07/2022107-%E5%86%8D%E5%8E%BB%E9%9B%A8%E8%8A%B1%E5%8F%B0/" title="再去雨花台">
+                        <span class="hidden-mobile">再去雨花台</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"eCwG0nnpzuXX3P72P4DIj1Ct-gzGzoHsz","appKey":"qYCJDnCnKc5wQSRsaOCYPoRz","path":"window.location.pathname","placeholder":"你有什么想说得在这留下吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/Tian-1-2/typblog/js/events.js" ></script>
+<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
