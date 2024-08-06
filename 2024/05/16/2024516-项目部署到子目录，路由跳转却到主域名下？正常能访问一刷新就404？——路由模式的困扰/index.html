@@ -16,15 +16,15 @@
   <meta name="author" content="田云鹏">
   <meta name="keywords" content="">
   
-    <meta name="description" content="[TOC] 项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰今天在做项目部署到一个服务器子目录时，遇到了两个问题，这里做下记录 一、路由模式介绍这里以Vue Router v4版本为例 在Vue Router v4版本有三种模式，官网已经做了详细介绍 Hash 模式hash 模式是用 createWebHashHistory() 创建的： 12345678imp">
+    <meta name="description" content="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰今天在做项目部署到一个服务器子目录时，遇到了两个问题，这里做下记录 一、路由模式介绍这里以Vue Router v4版本为例 在Vue Router v4版本有三种模式，官网已经做了详细介绍 Hash 模式hash 模式是用 createWebHashHistory() 创建的： 12345678import">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰">
 <meta property="og:url" content="https://github.com/Tian-1-2/typblog/2024/05/16/2024516-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0%E5%AD%90%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%8D%B4%E5%88%B0%E4%B8%BB%E5%9F%9F%E5%90%8D%E4%B8%8B%EF%BC%9F%E6%AD%A3%E5%B8%B8%E8%83%BD%E8%AE%BF%E9%97%AE%E4%B8%80%E5%88%B7%E6%96%B0%E5%B0%B1404%EF%BC%9F%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9B%B0%E6%89%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="[TOC] 项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰今天在做项目部署到一个服务器子目录时，遇到了两个问题，这里做下记录 一、路由模式介绍这里以Vue Router v4版本为例 在Vue Router v4版本有三种模式，官网已经做了详细介绍 Hash 模式hash 模式是用 createWebHashHistory() 创建的： 12345678imp">
+<meta property="og:description" content="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰今天在做项目部署到一个服务器子目录时，遇到了两个问题，这里做下记录 一、路由模式介绍这里以Vue Router v4版本为例 在Vue Router v4版本有三种模式，官网已经做了详细介绍 Hash 模式hash 模式是用 createWebHashHistory() 创建的： 12345678import">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-16T08:46:25.000Z">
-<meta property="article:modified_time" content="2024-05-16T08:32:02.825Z">
+<meta property="article:modified_time" content="2024-08-06T09:13:59.003Z">
 <meta property="article:author" content="田云鹏">
 <meta property="article:tag" content="项目部署">
 <meta name="twitter:card" content="summary_large_image">
@@ -242,7 +242,7 @@
         
         
         
-          20 分钟
+          19 分钟
         
       </span>
     
@@ -285,7 +285,8 @@
             
               <div class="markdown-body">
                 
-                <p>[TOC]</p>
+                <meta name="referrer" content="no-referrer"/>
+
 <h2 id="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰"><a href="#项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰" class="headerlink" title="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰"></a>项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰</h2><p>今天在做项目部署到一个服务器子目录时，遇到了两个问题，这里做下记录</p>
 <h3 id="一、路由模式介绍"><a href="#一、路由模式介绍" class="headerlink" title="一、路由模式介绍"></a>一、路由模式介绍</h3><p>这里以Vue Router v4版本为例</p>
 <p>在Vue Router v4版本有三种模式，官网已经做了详细介绍</p>
