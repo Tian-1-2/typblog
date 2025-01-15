@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
-  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="Echarts小问题汇总记录工作中使用Echarts的遇见的一些小问题，后续会不断进行补充 1.柱状图第一条柱子遮挡Y轴解决方法 这个是echarts两边没有留白导致的第一个和最后一个遮挡Y轴， 在你的echarts 配置项中大概率出现了 boundaryGap：false这条属性，这个属性在折线图中没有任何问题，但是在柱状图中就会出现这种情况，可以把这条属性注解掉或者把false修改为true就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Echarts小问题汇总">
-<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2023/12/12/20231212-Echarts%E5%B0%8F%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2023/12/12/20231212-Echarts%E5%B0%8F%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Echarts小问题汇总记录工作中使用Echarts的遇见的一些小问题，后续会不断进行补充 1.柱状图第一条柱子遮挡Y轴解决方法 这个是echarts两边没有留白导致的第一个和最后一个遮挡Y轴， 在你的echarts 配置项中大概率出现了 boundaryGap：false这条属性，这个属性在折线图中没有任何问题，但是在柱状图中就会出现这种情况，可以把这条属性注解掉或者把false修改为true就">
 <meta property="og:locale" content="zh_CN">
@@ -61,12 +61,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+<link  rel="stylesheet" href="/typblog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
   
 
 
@@ -75,15 +75,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
-  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
   
 
 
@@ -100,7 +100,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+    <a class="navbar-brand" href="/typblog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -119,7 +119,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/">
+              <a class="nav-link" href="/typblog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -131,7 +131,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+              <a class="nav-link" href="/typblog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -143,7 +143,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+              <a class="nav-link" href="/typblog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -155,7 +155,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+              <a class="nav-link" href="/typblog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -167,7 +167,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+              <a class="nav-link" href="/typblog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -179,7 +179,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+              <a class="nav-link" href="/typblog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -208,7 +208,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -292,7 +292,7 @@
               <div class="markdown-body">
                 
                 <h2 id="Echarts小问题汇总"><a href="#Echarts小问题汇总" class="headerlink" title="Echarts小问题汇总"></a>Echarts小问题汇总</h2><p>记录工作中使用Echarts的遇见的一些小问题，后续会不断进行补充</p>
-<h5 id="1-柱状图第一条柱子遮挡Y轴解决方法"><a href="#1-柱状图第一条柱子遮挡Y轴解决方法" class="headerlink" title="1.柱状图第一条柱子遮挡Y轴解决方法"></a>1.柱状图第一条柱子遮挡Y轴解决方法</h5><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212200738960.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20231212200738960"></p>
+<h5 id="1-柱状图第一条柱子遮挡Y轴解决方法"><a href="#1-柱状图第一条柱子遮挡Y轴解决方法" class="headerlink" title="1.柱状图第一条柱子遮挡Y轴解决方法"></a>1.柱状图第一条柱子遮挡Y轴解决方法</h5><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212200738960.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20231212200738960"></p>
 <p>这个是echarts两边没有留白导致的第一个和最后一个遮挡Y轴，</p>
 <p>在你的echarts 配置项中大概率出现了 boundaryGap：false这条属性，这个属性在折线图中没有任何问题，但是在柱状图中就会出现这种情况，可以把这条属性注解掉或者把false修改为true就可以解决柱状图遮挡Y轴问题。</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs lasso">xAxis: &#123;<br>    <span class="hljs-keyword">type</span>: <span class="hljs-string">&#x27;category&#x27;</span>,<br>    boundaryGap:<span class="hljs-literal">true</span>,<br>    <span class="hljs-built_in">data</span>: <span class="hljs-meta">[</span><span class="hljs-string">&#x27;Mon&#x27;</span>, <span class="hljs-string">&#x27;Tue&#x27;</span>, <span class="hljs-string">&#x27;Wed&#x27;</span>, <span class="hljs-string">&#x27;Thu&#x27;</span>, <span class="hljs-string">&#x27;Fri&#x27;</span>, <span class="hljs-string">&#x27;Sat&#x27;</span>, <span class="hljs-string">&#x27;Sun&#x27;</span><span class="hljs-meta">]</span><br>  &#125;,<br></code></pre></td></tr></table></figure>
@@ -303,21 +303,21 @@
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> myChart = echarts.<span class="hljs-keyword">init</span>(document.getElementById(<span class="hljs-string">&#x27;main&#x27;</span>), <span class="hljs-literal">null</span>, &#123;renderer:<span class="hljs-string">&#x27;svg&#x27;</span>&#125;);<br></code></pre></td></tr></table></figure>
 
 <h5 id="3-相邻柱状图中间不要有空隙"><a href="#3-相邻柱状图中间不要有空隙" class="headerlink" title="3.相邻柱状图中间不要有空隙"></a>3.相邻柱状图中间不要有空隙</h5><p>默认的柱状图之间纯在间隙</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212201519430.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20231212201519430"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212201519430.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20231212201519430"></p>
 <p>解决方法：在series中加入barGap:’0%’即可</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">series</span>: [<br>  &#123;<br>    <span class="hljs-class"><span class="hljs-keyword">data</span>: [120, 200, 150, 80, 70, 110, 130],</span><br>    <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;,</span><br>    barGap: &#x27;<span class="hljs-number">0</span>%&#x27;,<br>  &#125;,<br>  &#123;<br>    <span class="hljs-class"><span class="hljs-keyword">data</span>: [120, 200, 150, 80, 70, 110, 130],</span><br>    <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;</span><br>  &#125;,&#123;<br>    <span class="hljs-class"><span class="hljs-keyword">data</span>: [120, 200, 150, 80, 70, 110, 130],</span><br>    <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;</span><br>  &#125;,&#123;<br>    <span class="hljs-class"><span class="hljs-keyword">data</span>: [120, 200, 150, 80, 70, 110, 130],</span><br>    <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;</span><br>  &#125;,&#123;<br>    <span class="hljs-class"><span class="hljs-keyword">data</span>: [120, 200, 150, 80, 70, 110, 130],</span><br>    <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;</span><br>  &#125;<br>]<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212201757209.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20231212201757209"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212201757209.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20231212201757209"></p>
 <h5 id="4-实现echarts图表自适应"><a href="#4-实现echarts图表自适应" class="headerlink" title="4.实现echarts图表自适应"></a>4.实现echarts图表自适应</h5><p>echarts自带的有resize()方法，官方解释用处为：改变图表尺寸，在容器大小发生改变时需要手动调用，所以我们监听屏幕变化时调用方法即可</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;<br>   <span class="hljs-keyword">let</span> echartDom = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;echart&#x27;</span>);<br>   <span class="hljs-variable language_">this</span>.<span class="hljs-property">echartElement</span> = echarts.<span class="hljs-title function_">init</span>(echartDom);<br>   <span class="hljs-comment">// 页面大小变化重置图表</span><br>   <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>     <span class="hljs-variable language_">this</span>.<span class="hljs-property">echartElement</span>.<span class="hljs-title function_">resize</span>();<br>   &#125;);<br> &#125;,<br> <span class="hljs-title function_">beforeDestroy</span>(<span class="hljs-params"></span>) &#123;<br>   <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>     <span class="hljs-variable language_">this</span>.<span class="hljs-property">echartElement</span>.<span class="hljs-title function_">resize</span>();<br>   &#125;);<br> &#125;,<br></code></pre></td></tr></table></figure>
 
 <p>销毁组件中别忘记去除监听</p>
 <h5 id="5-单个柱状图最大宽度"><a href="#5-单个柱状图最大宽度" class="headerlink" title="5.单个柱状图最大宽度"></a>5.单个柱状图最大宽度</h5><p>当数据变少时，因为其自适应效果，但列时会撑满，柱子变的很粗，不太美观</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212202606596.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20231212202606596"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212202606596.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20231212202606596"></p>
 <p>在series中加入barMaxWidth属性即可</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">series</span>: [<br>    &#123;<br>      <span class="hljs-class"><span class="hljs-keyword">data</span>: [120,</span><br>      <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;,</span><br>      barGap: &#x27;<span class="hljs-number">0</span>%&#x27;,<br>      barMaxWidth:<span class="hljs-number">20</span>,<br>    &#125;,<br>    &#123;<br>      <span class="hljs-class"><span class="hljs-keyword">data</span>: [120],</span><br>      <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;,</span><br>      barMaxWidth:<span class="hljs-number">20</span>,<br>    &#125;,&#123;<br>      <span class="hljs-class"><span class="hljs-keyword">data</span>: [120],</span><br>      <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;,</span><br>      barMaxWidth:<span class="hljs-number">20</span>,<br>    &#125;,&#123;<br>      <span class="hljs-class"><span class="hljs-keyword">data</span>: [120],</span><br>      <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;,</span><br>      barMaxWidth:<span class="hljs-number">20</span>,<br>    &#125;,&#123;<br>      <span class="hljs-class"><span class="hljs-keyword">data</span>: [120],</span><br>      <span class="hljs-class"><span class="hljs-keyword">type</span>: &#x27;bar&#x27;,</span><br>      barMaxWidth:<span class="hljs-number">20</span>,<br>    &#125;<br>  ]<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212202955081.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20231212202955081"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20231212202955081.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20231212202955081"></p>
 
                 
               </div>
@@ -336,7 +336,7 @@
     
       <span class="category-chain">
         
-  <a href="/Tian-1-2/typblog/categories/Echarts/" class="category-chain-item">Echarts</a>
+  <a href="/typblog/categories/Echarts/" class="category-chain-item">Echarts</a>
   
   
 
@@ -351,7 +351,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Tian-1-2/typblog/tags/Echarts/">#Echarts</a>
+        <a href="/typblog/tags/Echarts/">#Echarts</a>
       
     </div>
   
@@ -364,7 +364,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Echarts小问题汇总</div>
-      <div>https://github.com/Tian-1-2/typblog/2023/12/12/20231212-Echarts小问题汇总/</div>
+      <div>https://tian-1-2.github.io/typblog/2023/12/12/20231212-Echarts小问题汇总/</div>
     </div>
     <div class="license-meta">
       
@@ -408,7 +408,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2024/01/04/202414-%E8%87%AA%E5%AE%9A%E4%B9%89Echarts%E4%B8%ADlegend%E3%80%81tooltip%E7%AD%89%E6%A0%B7%E5%BC%8F/" title="自定义Echarts中legend、tooltip等样式">
+                      <a href="/typblog/2024/01/04/202414-%E8%87%AA%E5%AE%9A%E4%B9%89Echarts%E4%B8%ADlegend%E3%80%81tooltip%E7%AD%89%E6%A0%B7%E5%BC%8F/" title="自定义Echarts中legend、tooltip等样式">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">自定义Echarts中legend、tooltip等样式</span>
                         <span class="visible-mobile">上一篇</span>
@@ -418,7 +418,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2023/11/14/20231114-%E5%BA%94%E5%B1%8A%E8%A3%81%E5%91%98%EF%BC%8C%E5%A4%A9%E8%83%A1%E5%BC%80%E5%B1%80%E2%80%94%E2%80%94%E8%B0%88%E8%B0%88%E6%88%91%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B8%80%E5%B9%B4%E7%BB%8F%E5%8E%86/" title="应届裁员，天胡开局——谈谈我的前端一年经历">
+                      <a href="/typblog/2023/11/14/20231114-%E5%BA%94%E5%B1%8A%E8%A3%81%E5%91%98%EF%BC%8C%E5%A4%A9%E8%83%A1%E5%BC%80%E5%B1%80%E2%80%94%E2%80%94%E8%B0%88%E8%B0%88%E6%88%91%E7%9A%84%E5%89%8D%E7%AB%AF%E4%B8%80%E5%B9%B4%E7%BB%8F%E5%8E%86/" title="应届裁员，天胡开局——谈谈我的前端一年经历">
                         <span class="hidden-mobile">应届裁员，天胡开局——谈谈我的前端一年经历</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -573,8 +573,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/Tian-1-2/typblog/js/events.js" ></script>
-<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -596,7 +596,7 @@
 
 
   
-    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+    <script  src="/typblog/js/img-lazyload.js" ></script>
   
 
 
@@ -695,7 +695,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+  <script  src="/typblog/js/local-search.js" ></script>
 
 
 
@@ -703,7 +703,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+<script  src="/typblog/js/boot.js" ></script>
 
 
   

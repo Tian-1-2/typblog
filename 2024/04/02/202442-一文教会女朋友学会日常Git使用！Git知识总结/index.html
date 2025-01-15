@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
-  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="一文教会女朋友学会日常Git使用！Git知识总结女朋友最近在学习git这块知识，我给他推荐了视频和廖雪峰的git文档，但是奈何新手刚开始学习，还是依然吃力，而日常工作中git这一部分使用其实并不难，所以也为了减轻女朋友的压力，这篇文章来了。 本文章涉及原理较少，主要是日常工作中直接使用，适合新手快速入门,如何想详细全面了解，还是推荐廖雪峰git讲解 一、git基本知识了解1.git简介Git是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一文教会女朋友学会日常Git使用！Git知识总结">
-<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2024/04/02/202442-%E4%B8%80%E6%96%87%E6%95%99%E4%BC%9A%E5%A5%B3%E6%9C%8B%E5%8F%8B%E5%AD%A6%E4%BC%9A%E6%97%A5%E5%B8%B8Git%E4%BD%BF%E7%94%A8%EF%BC%81Git%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2024/04/02/202442-%E4%B8%80%E6%96%87%E6%95%99%E4%BC%9A%E5%A5%B3%E6%9C%8B%E5%8F%8B%E5%AD%A6%E4%BC%9A%E6%97%A5%E5%B8%B8Git%E4%BD%BF%E7%94%A8%EF%BC%81Git%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="一文教会女朋友学会日常Git使用！Git知识总结女朋友最近在学习git这块知识，我给他推荐了视频和廖雪峰的git文档，但是奈何新手刚开始学习，还是依然吃力，而日常工作中git这一部分使用其实并不难，所以也为了减轻女朋友的压力，这篇文章来了。 本文章涉及原理较少，主要是日常工作中直接使用，适合新手快速入门,如何想详细全面了解，还是推荐廖雪峰git讲解 一、git基本知识了解1.git简介Git是">
 <meta property="og:locale" content="zh_CN">
@@ -60,12 +60,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+<link  rel="stylesheet" href="/typblog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
   
 
 
@@ -74,15 +74,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
-  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
   
 
 
@@ -99,7 +99,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+    <a class="navbar-brand" href="/typblog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -118,7 +118,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/">
+              <a class="nav-link" href="/typblog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -130,7 +130,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+              <a class="nav-link" href="/typblog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -142,7 +142,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+              <a class="nav-link" href="/typblog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -154,7 +154,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+              <a class="nav-link" href="/typblog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -166,7 +166,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+              <a class="nav-link" href="/typblog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -178,7 +178,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+              <a class="nav-link" href="/typblog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -207,7 +207,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -303,7 +303,7 @@
 <li>Git远程仓库：最终的存放区域，即远程服务器(git push成功后代码推送的地方，就是代码仓库，比如Gitee、GitHub上建的仓库)</li>
 </ul>
 <p>下面这张图比较直观，可以做参考</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240328141101581.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240328141101581"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240328141101581.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240328141101581"></p>
 <h4 id="3-git常用命令"><a href="#3-git常用命令" class="headerlink" title="3.git常用命令"></a>3.git常用命令</h4><p><strong>连接远程仓库</strong></p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">git remote <span class="hljs-built_in">add</span> xxx(例如：git remote <span class="hljs-built_in">add</span> origin 复制的ssh地址或者https地址)<br></code></pre></td></tr></table></figure>
 
@@ -335,7 +335,7 @@
 <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">git stash <span class="hljs-built_in">pop</span>: 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。由于可能存在多个Stash的内容，所以用栈来管理，<span class="hljs-built_in">pop</span>会从最近的一个stash中读取内容并恢复<br></code></pre></td></tr></table></figure>
 
 <h3 id="二、常用工作场景"><a href="#二、常用工作场景" class="headerlink" title="二、常用工作场景"></a>二、常用工作场景</h3><h4 id="1-克隆远程仓库，把仓库代码拉到本地"><a href="#1-克隆远程仓库，把仓库代码拉到本地" class="headerlink" title="1.克隆远程仓库，把仓库代码拉到本地"></a>1.克隆远程仓库，把仓库代码拉到本地</h4><p>这里以码云为例复制shh或者https</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401134113463.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240401134113463"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401134113463.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240401134113463"></p>
 <p>执行下面克隆命令即可</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@gitee.com:typhome/pinball-games.git<br></code></pre></td></tr></table></figure>
 
@@ -357,9 +357,9 @@
 
 <p>以上几种情况基本满足日常工作需求，主要就是代码拉取和推送</p>
 <h3 id="三、Git图形工具推荐"><a href="#三、Git图形工具推荐" class="headerlink" title="三、Git图形工具推荐"></a>三、Git图形工具推荐</h3><p>平常敲命令可能过于麻烦，或者不那么直观，这里推荐两个我常用的，提高开发效率，但是建议在git命令熟悉后或者使用一段时间后，再使用图形界面操作git</p>
-<h4 id="1-vscode上自带的"><a href="#1-vscode上自带的" class="headerlink" title="1.vscode上自带的"></a>1.vscode上自带的</h4><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401142403154.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240401142403154"></p>
+<h4 id="1-vscode上自带的"><a href="#1-vscode上自带的" class="headerlink" title="1.vscode上自带的"></a>1.vscode上自带的</h4><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401142403154.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240401142403154"></p>
 <p>可以看修改代码对比、切换分支、提交、stash等等，也是非常直观方便</p>
-<h4 id="2-Soucetree"><a href="#2-Soucetree" class="headerlink" title="2.Soucetree"></a>2.Soucetree</h4><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401143104695.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240401143104695"></p>
+<h4 id="2-Soucetree"><a href="#2-Soucetree" class="headerlink" title="2.Soucetree"></a>2.Soucetree</h4><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240401143104695.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240401143104695"></p>
 <p>Soucetree是我最常用的git图形界面了，相比于vscode自带的更直观了，对于分支的操作更方便。</p>
 <p>我认为唯一不足的就是修改代码对比，soucetree只显示修改行对比，而vscode的左右代码整个文件对比</p>
 <p>感觉更直观一点。</p>
@@ -382,7 +382,7 @@
     
       <span class="category-chain">
         
-  <a href="/Tian-1-2/typblog/categories/git/" class="category-chain-item">git</a>
+  <a href="/typblog/categories/git/" class="category-chain-item">git</a>
   
   
 
@@ -397,7 +397,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Tian-1-2/typblog/tags/git/">#git</a>
+        <a href="/typblog/tags/git/">#git</a>
       
     </div>
   
@@ -410,7 +410,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>一文教会女朋友学会日常Git使用！Git知识总结</div>
-      <div>https://github.com/Tian-1-2/typblog/2024/04/02/202442-一文教会女朋友学会日常Git使用！Git知识总结/</div>
+      <div>https://tian-1-2.github.io/typblog/2024/04/02/202442-一文教会女朋友学会日常Git使用！Git知识总结/</div>
     </div>
     <div class="license-meta">
       
@@ -454,7 +454,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2024/05/16/2024516-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0%E5%AD%90%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%8D%B4%E5%88%B0%E4%B8%BB%E5%9F%9F%E5%90%8D%E4%B8%8B%EF%BC%9F%E6%AD%A3%E5%B8%B8%E8%83%BD%E8%AE%BF%E9%97%AE%E4%B8%80%E5%88%B7%E6%96%B0%E5%B0%B1404%EF%BC%9F%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9B%B0%E6%89%B0/" title="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰">
+                      <a href="/typblog/2024/05/16/2024516-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%88%B0%E5%AD%90%E7%9B%AE%E5%BD%95%EF%BC%8C%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E5%8D%B4%E5%88%B0%E4%B8%BB%E5%9F%9F%E5%90%8D%E4%B8%8B%EF%BC%9F%E6%AD%A3%E5%B8%B8%E8%83%BD%E8%AE%BF%E9%97%AE%E4%B8%80%E5%88%B7%E6%96%B0%E5%B0%B1404%EF%BC%9F%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9B%B0%E6%89%B0/" title="项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">项目部署到子目录，路由跳转却到主域名下？正常能访问一刷新就404？——路由模式的困扰</span>
                         <span class="visible-mobile">上一篇</span>
@@ -464,7 +464,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2024/03/27/2024327-echarts%E5%AE%9E%E7%8E%B0%E4%B8%A4%E4%B8%AAy%E8%BD%B40%E5%88%BB%E5%BA%A6%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4%EF%BC%88%E5%A4%9A%E6%9D%A1%E6%95%B0%E6%8D%AE%E6%97%B6%EF%BC%89/" title="echarts实现两个y轴0刻度保持一致（多条数据时）">
+                      <a href="/typblog/2024/03/27/2024327-echarts%E5%AE%9E%E7%8E%B0%E4%B8%A4%E4%B8%AAy%E8%BD%B40%E5%88%BB%E5%BA%A6%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4%EF%BC%88%E5%A4%9A%E6%9D%A1%E6%95%B0%E6%8D%AE%E6%97%B6%EF%BC%89/" title="echarts实现两个y轴0刻度保持一致（多条数据时）">
                         <span class="hidden-mobile">echarts实现两个y轴0刻度保持一致（多条数据时）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -619,8 +619,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/Tian-1-2/typblog/js/events.js" ></script>
-<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -642,7 +642,7 @@
 
 
   
-    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+    <script  src="/typblog/js/img-lazyload.js" ></script>
   
 
 
@@ -741,7 +741,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+  <script  src="/typblog/js/local-search.js" ></script>
 
 
 
@@ -749,7 +749,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+<script  src="/typblog/js/boot.js" ></script>
 
 
   

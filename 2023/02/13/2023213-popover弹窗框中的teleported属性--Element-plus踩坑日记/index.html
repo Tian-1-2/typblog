@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
-  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="popover弹窗框中的teleported属性–Element plus踩坑日记今天在做项目时，有一个地方用到了弹窗框，但是有需求需要修改弹窗的阴影部分 比如下方的  我想对阴影进行修改，但是很是纳闷，各种标签选择器都不生效，很奇怪。 按照以往对element plus样式修改是完全没问题的。 带着疑问问了带我实习的师傅，发现了这个属性 teleported：是否将 popover 的下拉列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="popover弹窗框中的teleported属性--Element plus踩坑日记">
-<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2023/02/13/2023213-popover%E5%BC%B9%E7%AA%97%E6%A1%86%E4%B8%AD%E7%9A%84teleported%E5%B1%9E%E6%80%A7--Element-plus%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/index.html">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2023/02/13/2023213-popover%E5%BC%B9%E7%AA%97%E6%A1%86%E4%B8%AD%E7%9A%84teleported%E5%B1%9E%E6%80%A7--Element-plus%E8%B8%A9%E5%9D%91%E6%97%A5%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="popover弹窗框中的teleported属性–Element plus踩坑日记今天在做项目时，有一个地方用到了弹窗框，但是有需求需要修改弹窗的阴影部分 比如下方的  我想对阴影进行修改，但是很是纳闷，各种标签选择器都不生效，很奇怪。 按照以往对element plus样式修改是完全没问题的。 带着疑问问了带我实习的师傅，发现了这个属性 teleported：是否将 popover 的下拉列">
 <meta property="og:locale" content="zh_CN">
@@ -59,12 +59,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+<link  rel="stylesheet" href="/typblog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
   
 
 
@@ -73,15 +73,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
-  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
   
 
 
@@ -98,7 +98,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+    <a class="navbar-brand" href="/typblog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -117,7 +117,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/">
+              <a class="nav-link" href="/typblog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -129,7 +129,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+              <a class="nav-link" href="/typblog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -141,7 +141,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+              <a class="nav-link" href="/typblog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -153,7 +153,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+              <a class="nav-link" href="/typblog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -165,7 +165,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+              <a class="nav-link" href="/typblog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -177,7 +177,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+              <a class="nav-link" href="/typblog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -206,7 +206,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -293,7 +293,7 @@
 
 <h2 id="popover弹窗框中的teleported属性–Element-plus踩坑日记"><a href="#popover弹窗框中的teleported属性–Element-plus踩坑日记" class="headerlink" title="popover弹窗框中的teleported属性–Element plus踩坑日记"></a>popover弹窗框中的teleported属性–Element plus踩坑日记</h2><p>今天在做项目时，有一个地方用到了弹窗框，但是有需求需要修改弹窗的阴影部分</p>
 <p>比如下方的</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20230213185801885.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20230213185801885"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20230213185801885.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20230213185801885"></p>
 <p>我想对阴影进行修改，但是很是纳闷，各种标签选择器都不生效，很奇怪。</p>
 <p>按照以往对element plus样式修改是完全没问题的。</p>
 <p>带着疑问问了带我实习的师傅，发现了这个属性</p>
@@ -304,10 +304,10 @@
 <p>这个插入body元素确实是插入了body元素中，但是它是仅是降了一级成为了<strong>body的children</strong></p>
 <p>它和我们组件的内容成为兄弟关系了！</p>
 <p>如下图</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20230213190747921.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20230213190747921"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20230213190747921.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20230213190747921"></p>
 <p>可知，弹窗框是在组件内容之外了，所以在组件内操作的样式没有对弹窗框生效</p>
 <p>而改为false之后就成为下面的效果了</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20230213191109825.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20230213191109825"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20230213191109825.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20230213191109825"></p>
 <p>而样式也成功生效</p>
 
                 
@@ -327,7 +327,7 @@
     
       <span class="category-chain">
         
-  <a href="/Tian-1-2/typblog/categories/Element-plus/" class="category-chain-item">Element plus</a>
+  <a href="/typblog/categories/Element-plus/" class="category-chain-item">Element plus</a>
   
   
 
@@ -342,7 +342,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Tian-1-2/typblog/tags/Element-plus/">#Element plus</a>
+        <a href="/typblog/tags/Element-plus/">#Element plus</a>
       
     </div>
   
@@ -355,7 +355,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>popover弹窗框中的teleported属性--Element plus踩坑日记</div>
-      <div>https://github.com/Tian-1-2/typblog/2023/02/13/2023213-popover弹窗框中的teleported属性--Element-plus踩坑日记/</div>
+      <div>https://tian-1-2.github.io/typblog/2023/02/13/2023213-popover弹窗框中的teleported属性--Element-plus踩坑日记/</div>
     </div>
     <div class="license-meta">
       
@@ -399,7 +399,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2023/03/13/2023313-%E8%A7%A3%E5%86%B3git-pull%E6%97%B6%E5%87%BA%E7%8E%B0%E5%86%B2%E7%AA%81%E6%97%A0%E6%B3%95pull%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98/" title="解决git pull时出现冲突无法pull时的问题">
+                      <a href="/typblog/2023/03/13/2023313-%E8%A7%A3%E5%86%B3git-pull%E6%97%B6%E5%87%BA%E7%8E%B0%E5%86%B2%E7%AA%81%E6%97%A0%E6%B3%95pull%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98/" title="解决git pull时出现冲突无法pull时的问题">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">解决git pull时出现冲突无法pull时的问题</span>
                         <span class="visible-mobile">上一篇</span>
@@ -409,7 +409,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2023/01/10/2023110-%E5%B0%86%E6%95%B0%E7%BB%84%E9%87%8C%E6%89%80%E6%9C%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%95%B0%E5%AD%97%E5%BF%AB%E6%8D%B7%E6%96%B9%E6%B3%95/" title="将数组里所有字符串转换为数字快捷方法">
+                      <a href="/typblog/2023/01/10/2023110-%E5%B0%86%E6%95%B0%E7%BB%84%E9%87%8C%E6%89%80%E6%9C%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%95%B0%E5%AD%97%E5%BF%AB%E6%8D%B7%E6%96%B9%E6%B3%95/" title="将数组里所有字符串转换为数字快捷方法">
                         <span class="hidden-mobile">将数组里所有字符串转换为数字快捷方法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -564,8 +564,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/Tian-1-2/typblog/js/events.js" ></script>
-<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -587,7 +587,7 @@
 
 
   
-    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+    <script  src="/typblog/js/img-lazyload.js" ></script>
   
 
 
@@ -686,7 +686,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+  <script  src="/typblog/js/local-search.js" ></script>
 
 
 
@@ -694,7 +694,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+<script  src="/typblog/js/boot.js" ></script>
 
 
   

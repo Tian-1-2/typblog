@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
-  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="1、冒泡排序（Bubble Sort）冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。  时间复杂度：O（n^2） 空间复杂度：O（1) 1.1 算法描述 比较相邻的元素。如果第一个比第二个大，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="冒泡排序（Bubble Sort）">
-<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2022/05/08/202258-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%88Bubble-Sort%EF%BC%89/index.html">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2022/05/08/202258-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%88Bubble-Sort%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1、冒泡排序（Bubble Sort）冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。  时间复杂度：O（n^2） 空间复杂度：O（1) 1.1 算法描述 比较相邻的元素。如果第一个比第二个大，">
 <meta property="og:locale" content="zh_CN">
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+<link  rel="stylesheet" href="/typblog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
-  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
   
 
 
@@ -96,7 +96,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+    <a class="navbar-brand" href="/typblog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -115,7 +115,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/">
+              <a class="nav-link" href="/typblog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -127,7 +127,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+              <a class="nav-link" href="/typblog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -139,7 +139,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+              <a class="nav-link" href="/typblog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -151,7 +151,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+              <a class="nav-link" href="/typblog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -163,7 +163,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+              <a class="nav-link" href="/typblog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -175,7 +175,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+              <a class="nav-link" href="/typblog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -204,7 +204,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -297,7 +297,7 @@
 <li>重复步骤1~3，直到排序完成。</li>
 </ul>
 <p><strong>1.2 动图演示</strong></p>
-<p><img src="https://images2017.cnblogs.com/blog/849589/201710/849589-20171015223238449-2146169197.gif" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://images2017.cnblogs.com/blog/849589/201710/849589-20171015223238449-2146169197.gif" srcset="/typblog/img/loading.gif" lazyload alt="img"></p>
 <h4 id="1-3-代码实现"><a href="#1-3-代码实现" class="headerlink" title="1.3 代码实现"></a>1.3 代码实现</h4><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">function</span> <span class="hljs-title function_">bubbleSort</span>(<span class="hljs-params">arr</span>) &#123;<br>    <span class="hljs-keyword">var</span> len = arr.<span class="hljs-built_in">length</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; len - <span class="hljs-number">1</span>; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; len - <span class="hljs-number">1</span> - i; j++) &#123;<br>            <span class="hljs-keyword">if</span> (arr[j] &gt; arr[j+<span class="hljs-number">1</span>]) &#123;        <span class="hljs-comment">// 相邻元素两两对比</span><br>                <span class="hljs-keyword">var</span> temp = arr[j+<span class="hljs-number">1</span>];        <span class="hljs-comment">// 元素交换</span><br>                arr[j+<span class="hljs-number">1</span>] = arr[j];<br>                arr[j] = temp;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> arr;<br>&#125;<br><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>];<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(arr); <span class="hljs-comment">// [6, 5, 4, 3, 2, 1]</span><br>bubbleSort(arr);<br><span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(arr); <span class="hljs-comment">// [1, 2, 3, 4, 5, 6]</span><br></code></pre></td></tr></table></figure>
                 
               </div>
@@ -316,12 +316,12 @@
     
       <span class="category-chain">
         
-  <a href="/Tian-1-2/typblog/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
+  <a href="/typblog/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
   
   
     <span>></span>
     
-  <a href="/Tian-1-2/typblog/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F/" class="category-chain-item">排序</a>
+  <a href="/typblog/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F/" class="category-chain-item">排序</a>
   
   
 
@@ -338,7 +338,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Tian-1-2/typblog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
+        <a href="/typblog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
       
     </div>
   
@@ -351,7 +351,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>冒泡排序（Bubble Sort）</div>
-      <div>https://github.com/Tian-1-2/typblog/2022/05/08/202258-冒泡排序（Bubble-Sort）/</div>
+      <div>https://tian-1-2.github.io/typblog/2022/05/08/202258-冒泡排序（Bubble-Sort）/</div>
     </div>
     <div class="license-meta">
       
@@ -395,7 +395,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2022/05/23/2022523-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" title="防抖与节流">
+                      <a href="/typblog/2022/05/23/2022523-%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/" title="防抖与节流">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">防抖与节流</span>
                         <span class="visible-mobile">上一篇</span>
@@ -405,7 +405,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2022/04/25/20221025-%E5%8A%A0%E4%B8%80--%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" title="加一--算法练习">
+                      <a href="/typblog/2022/04/25/20221025-%E5%8A%A0%E4%B8%80--%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" title="加一--算法练习">
                         <span class="hidden-mobile">加一--算法练习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -560,8 +560,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/Tian-1-2/typblog/js/events.js" ></script>
-<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -583,7 +583,7 @@
 
 
   
-    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+    <script  src="/typblog/js/img-lazyload.js" ></script>
   
 
 
@@ -682,7 +682,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+  <script  src="/typblog/js/local-search.js" ></script>
 
 
 
@@ -690,7 +690,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+<script  src="/typblog/js/boot.js" ></script>
 
 
   

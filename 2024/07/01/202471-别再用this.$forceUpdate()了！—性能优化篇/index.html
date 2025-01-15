@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
-  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="[TOC] 别再用this.$forceUpdate()了！—性能优化篇起因是接手公司之前外包的项目做项目优化，代码看着一言难尽，然后看代码时，发现了这个api:this.$forceUpdate()，这是什么？ 🎈介绍这里官网介绍很简单，  vm.$forceUpdate()示例：迫使 Vue 实例重新渲染。注意它仅仅影响实例本身和插入插槽内容的子组件，而不是所有子组件。  还有一段介绍，但是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="别再用this.$forceUpdate()了！—性能优化篇">
-<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2024/07/01/202471-%E5%88%AB%E5%86%8D%E7%94%A8this.$forceUpdate()%E4%BA%86%EF%BC%81%E2%80%94%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AF%87/index.html">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2024/07/01/202471-%E5%88%AB%E5%86%8D%E7%94%A8this.$forceUpdate()%E4%BA%86%EF%BC%81%E2%80%94%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AF%87/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] 别再用this.$forceUpdate()了！—性能优化篇起因是接手公司之前外包的项目做项目优化，代码看着一言难尽，然后看代码时，发现了这个api:this.$forceUpdate()，这是什么？ 🎈介绍这里官网介绍很简单，  vm.$forceUpdate()示例：迫使 Vue 实例重新渲染。注意它仅仅影响实例本身和插入插槽内容的子组件，而不是所有子组件。  还有一段介绍，但是">
 <meta property="og:locale" content="zh_CN">
@@ -55,12 +55,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+<link  rel="stylesheet" href="/typblog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
   
 
 
@@ -69,15 +69,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
-  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
   
 
 
@@ -94,7 +94,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+    <a class="navbar-brand" href="/typblog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -113,7 +113,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/">
+              <a class="nav-link" href="/typblog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+              <a class="nav-link" href="/typblog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+              <a class="nav-link" href="/typblog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+              <a class="nav-link" href="/typblog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+              <a class="nav-link" href="/typblog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -173,7 +173,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+              <a class="nav-link" href="/typblog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -202,7 +202,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -331,7 +331,7 @@
     
       <span class="category-chain">
         
-  <a href="/Tian-1-2/typblog/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="category-chain-item">性能优化</a>
+  <a href="/typblog/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="category-chain-item">性能优化</a>
   
   
 
@@ -346,7 +346,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Tian-1-2/typblog/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">#性能优化</a>
+        <a href="/typblog/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">#性能优化</a>
       
     </div>
   
@@ -359,7 +359,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>别再用this.$forceUpdate()了！—性能优化篇</div>
-      <div>https://github.com/Tian-1-2/typblog/2024/07/01/202471-别再用this.$forceUpdate()了！—性能优化篇/</div>
+      <div>https://tian-1-2.github.io/typblog/2024/07/01/202471-别再用this.$forceUpdate()了！—性能优化篇/</div>
     </div>
     <div class="license-meta">
       
@@ -403,7 +403,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2024/07/31/2024731-%E5%88%97%E8%A1%A8%E5%86%85%E5%AE%B9%E8%BF%87%E5%A4%9A%E5%8D%A1%E9%A1%BF%EF%BC%9F%E6%9C%89%E7%B4%A2%E5%BC%95%E6%A0%8F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD%EF%BC%9F/" title="列表内容过多卡顿？有索引栏如何实现滚动加载？">
+                      <a href="/typblog/2024/07/31/2024731-%E5%88%97%E8%A1%A8%E5%86%85%E5%AE%B9%E8%BF%87%E5%A4%9A%E5%8D%A1%E9%A1%BF%EF%BC%9F%E6%9C%89%E7%B4%A2%E5%BC%95%E6%A0%8F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%BB%9A%E5%8A%A8%E5%8A%A0%E8%BD%BD%EF%BC%9F/" title="列表内容过多卡顿？有索引栏如何实现滚动加载？">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">列表内容过多卡顿？有索引栏如何实现滚动加载？</span>
                         <span class="visible-mobile">上一篇</span>
@@ -413,7 +413,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2024/06/12/20240612%E8%A2%ABnode-sass%E6%8A%98%E7%A3%A8%E7%9A%84%E4%B8%80%E5%A4%A9/" title="">
+                      <a href="/typblog/2024/06/12/20240612%E8%A2%ABnode-sass%E6%8A%98%E7%A3%A8%E7%9A%84%E4%B8%80%E5%A4%A9/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -568,8 +568,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/Tian-1-2/typblog/js/events.js" ></script>
-<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -591,7 +591,7 @@
 
 
   
-    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+    <script  src="/typblog/js/img-lazyload.js" ></script>
   
 
 
@@ -690,7 +690,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+  <script  src="/typblog/js/local-search.js" ></script>
 
 
 
@@ -698,7 +698,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+<script  src="/typblog/js/boot.js" ></script>
 
 
   

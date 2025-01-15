@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
-  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="[TOC] 自定义Echarts中legend、tooltip等样式在使用Echarts图表中不可避免的要定义legend、tooltip中的样式，这里以legend为例介绍一下通用的方法 先介绍一下用到的属性 legend.formatter用来格式化图例文本，支持字符串模板和回调函数两种形式。 示例： 123456&#x2F;&#x2F; 使用字符串模板，模板变量为图例名称 &amp;#123;name&amp;#125;for">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义Echarts中legend、tooltip等样式">
-<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2024/01/04/202414-%E8%87%AA%E5%AE%9A%E4%B9%89Echarts%E4%B8%ADlegend%E3%80%81tooltip%E7%AD%89%E6%A0%B7%E5%BC%8F/index.html">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2024/01/04/202414-%E8%87%AA%E5%AE%9A%E4%B9%89Echarts%E4%B8%ADlegend%E3%80%81tooltip%E7%AD%89%E6%A0%B7%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] 自定义Echarts中legend、tooltip等样式在使用Echarts图表中不可避免的要定义legend、tooltip中的样式，这里以legend为例介绍一下通用的方法 先介绍一下用到的属性 legend.formatter用来格式化图例文本，支持字符串模板和回调函数两种形式。 示例： 123456&#x2F;&#x2F; 使用字符串模板，模板变量为图例名称 &amp;#123;name&amp;#125;for">
 <meta property="og:locale" content="zh_CN">
@@ -57,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+<link  rel="stylesheet" href="/typblog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
   
 
 
@@ -71,15 +71,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
-  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
   
 
 
@@ -96,7 +96,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+    <a class="navbar-brand" href="/typblog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -115,7 +115,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/">
+              <a class="nav-link" href="/typblog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -127,7 +127,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+              <a class="nav-link" href="/typblog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -139,7 +139,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+              <a class="nav-link" href="/typblog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -151,7 +151,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+              <a class="nav-link" href="/typblog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -163,7 +163,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+              <a class="nav-link" href="/typblog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -175,7 +175,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+              <a class="nav-link" href="/typblog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -204,7 +204,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -306,7 +306,7 @@
 <p>直接上代码</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">option</span> <span class="hljs-string">=</span> &#123;<br>  <span class="hljs-attr">title:</span> &#123;<br>    <span class="hljs-attr">text:</span> <span class="hljs-string">&#x27;Referer of a Website&#x27;</span>,<br>    <span class="hljs-attr">subtext:</span> <span class="hljs-string">&#x27;Fake Data&#x27;</span>,<br>    <span class="hljs-attr">left:</span> <span class="hljs-string">&#x27;center&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">tooltip:</span> &#123;<br>    <span class="hljs-attr">trigger:</span> <span class="hljs-string">&#x27;item&#x27;</span><br>  &#125;,<br>  <span class="hljs-attr">legend:</span> &#123;<br>    <span class="hljs-attr">orient:</span> <span class="hljs-string">&#x27;vertical&#x27;</span>,<br>    <span class="hljs-attr">left:</span> <span class="hljs-string">&#x27;left&#x27;</span>,<br>    <span class="hljs-attr">formatter:</span> [<span class="hljs-string">&#x27;&#123;ttt|这段文本采用样式a&#125;&#x27;</span>,<br>              <span class="hljs-string">&#x27;&#123;b|这段文本采用样式b&#125;&#x27;</span>,<br>              <span class="hljs-string">&#x27;&#123;这段用默认样式&#125;&#x27;</span>,<br>              <span class="hljs-string">&#x27;&#123;x|这段用样式x&#125;&#x27;</span>]<span class="hljs-string">.join(&#x27;\n&#x27;)</span>,<br>    <span class="hljs-string">textStyle:</span>&#123;<br>      <span class="hljs-attr">padding:</span> [<span class="hljs-number">60</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],<br>       <span class="hljs-attr">rich:</span> &#123;<br>        <span class="hljs-attr">ttt:</span> &#123;<br>            <span class="hljs-attr">color:</span> <span class="hljs-string">&#x27;red&#x27;</span>,<br>            <span class="hljs-attr">lineHeight:</span> <span class="hljs-number">20</span>,<br>            <br>        &#125;,<br>        <span class="hljs-attr">b:</span> &#123;<br>            <span class="hljs-attr">backgroundColor:</span> &#123;<br>                <span class="hljs-attr">image:</span> <span class="hljs-string">&#x27;xxx/xxx.jpg&#x27;</span><br>            &#125;,<br>            <span class="hljs-attr">height:</span> <span class="hljs-number">40</span><br>        &#125;,<br>        <span class="hljs-attr">x:</span> &#123;<br>            <span class="hljs-attr">fontSize:</span> <span class="hljs-number">18</span>,<br>            <span class="hljs-attr">fontFamily:</span> <span class="hljs-string">&#x27;Microsoft YaHei&#x27;</span>,<br>            <span class="hljs-attr">borderColor:</span> <span class="hljs-string">&#x27;#449933&#x27;</span>,<br>            <span class="hljs-attr">borderRadius:</span> <span class="hljs-number">4</span><br>        &#125;,<br>      &#125;<br>    &#125;,<br>  &#125;,<br>  <span class="hljs-attr">series:</span> [<br>    &#123;<br>      <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;Access From&#x27;</span>,<br>      <span class="hljs-attr">type:</span> <span class="hljs-string">&#x27;pie&#x27;</span>,<br>      <span class="hljs-attr">radius:</span> <span class="hljs-string">&#x27;50%&#x27;</span>,<br>      <span class="hljs-attr">data:</span> [<br>        &#123; <span class="hljs-attr">value:</span> <span class="hljs-number">1048</span>, <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;Search Engine&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">value:</span> <span class="hljs-number">735</span>, <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;Direct&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">value:</span> <span class="hljs-number">580</span>, <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;Email&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">value:</span> <span class="hljs-number">484</span>, <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;Union Ads&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">value:</span> <span class="hljs-number">300</span>, <span class="hljs-attr">name:</span> <span class="hljs-string">&#x27;Video Ads&#x27;</span> &#125;<br>      ],<br>      <span class="hljs-attr">emphasis:</span> &#123;<br>        <span class="hljs-attr">itemStyle:</span> &#123;<br>          <span class="hljs-attr">shadowBlur:</span> <span class="hljs-number">10</span>,<br>          <span class="hljs-attr">shadowOffsetX:</span> <span class="hljs-number">0</span>,<br>          <span class="hljs-attr">shadowColor:</span> <span class="hljs-string">&#x27;rgba(0, 0, 0, 0.5)&#x27;</span><br>        &#125;<br>      &#125;<br>    &#125;<br>  ]<br>&#125;<span class="hljs-string">;</span><br></code></pre></td></tr></table></figure>
 
-<h5 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h5><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240104203935142.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240104203935142"></p>
+<h5 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h5><p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240104203935142.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240104203935142"></p>
 <h5 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h5><p><a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/option.html#legend">echarts官网</a></p>
 
                 
@@ -326,7 +326,7 @@
     
       <span class="category-chain">
         
-  <a href="/Tian-1-2/typblog/categories/Echarts/" class="category-chain-item">Echarts</a>
+  <a href="/typblog/categories/Echarts/" class="category-chain-item">Echarts</a>
   
   
 
@@ -341,7 +341,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Tian-1-2/typblog/tags/Echarts/">#Echarts</a>
+        <a href="/typblog/tags/Echarts/">#Echarts</a>
       
     </div>
   
@@ -354,7 +354,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>自定义Echarts中legend、tooltip等样式</div>
-      <div>https://github.com/Tian-1-2/typblog/2024/01/04/202414-自定义Echarts中legend、tooltip等样式/</div>
+      <div>https://tian-1-2.github.io/typblog/2024/01/04/202414-自定义Echarts中legend、tooltip等样式/</div>
     </div>
     <div class="license-meta">
       
@@ -398,7 +398,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2024/01/06/202416-%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E6%89%93%E7%82%B9%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%88%E6%B5%B7%E9%87%8F%E7%82%B9%E3%80%81mapv%EF%BC%89/" title="百度地图打点性能优化（海量点、mapv）">
+                      <a href="/typblog/2024/01/06/202416-%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E6%89%93%E7%82%B9%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%88%E6%B5%B7%E9%87%8F%E7%82%B9%E3%80%81mapv%EF%BC%89/" title="百度地图打点性能优化（海量点、mapv）">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">百度地图打点性能优化（海量点、mapv）</span>
                         <span class="visible-mobile">上一篇</span>
@@ -408,7 +408,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2023/12/12/20231212-Echarts%E5%B0%8F%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="Echarts小问题汇总">
+                      <a href="/typblog/2023/12/12/20231212-Echarts%E5%B0%8F%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="Echarts小问题汇总">
                         <span class="hidden-mobile">Echarts小问题汇总</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -563,8 +563,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/Tian-1-2/typblog/js/events.js" ></script>
-<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -586,7 +586,7 @@
 
 
   
-    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+    <script  src="/typblog/js/img-lazyload.js" ></script>
   
 
 
@@ -685,7 +685,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+  <script  src="/typblog/js/local-search.js" ></script>
 
 
 
@@ -693,7 +693,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+<script  src="/typblog/js/boot.js" ></script>
 
 
   

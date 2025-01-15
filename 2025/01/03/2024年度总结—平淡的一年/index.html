@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="田云鹏">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="2024年度总结—平淡的一年 一直想写2024年年度总结，拖了很久，终于在2025年的第一天开始写了，工作一年的时候写过一次，那个时候刚找好工作，感慨万千，如今又过了一年多了，心态感觉变化了很多 一年时候的总结：应届裁员，天胡开局——谈谈我的前端一年经历  工作聊前端生涯总结，肯定离不开工作，这一年很稳定，一直待在这家 在这一年里，从刚开始负责日常简单需求开发到后面成为独立项目的负责人，接触的开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2025/01/03/2024%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%E2%80%94%E5%B9%B3%E6%B7%A1%E7%9A%84%E4%B8%80%E5%B9%B4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2024年度总结—平淡的一年 一直想写2024年年度总结，拖了很久，终于在2025年的第一天开始写了，工作一年的时候写过一次，那个时候刚找好工作，感慨万千，如今又过了一年多了，心态感觉变化了很多 一年时候的总结：应届裁员，天胡开局——谈谈我的前端一年经历  工作聊前端生涯总结，肯定离不开工作，这一年很稳定，一直待在这家 在这一年里，从刚开始负责日常简单需求开发到后面成为独立项目的负责人，接触的开发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/f4692ed95c644d3b97e229f7398682cd~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5pe26ZuoX18=:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTc1NTI0MDEwMzE1OTczNSJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735826394&x-orig-sign=GNBSmL74is+3jjlqxIVuTLwDmjM=">
+<meta property="og:image" content="https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/c3e0b4f5144a44ed86de2b256fade224~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5pe26ZuoX18=:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTc1NTI0MDEwMzE1OTczNSJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735826409&x-orig-sign=UIufxuHZRuC8S6BdrpqWMu6wqpY=">
+<meta property="og:image" content="https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/0bc0b4540f9f4d98885879e0b7ea0858~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5pe26ZuoX18=:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTc1NTI0MDEwMzE1OTczNSJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735826415&x-orig-sign=4zWRVrKCpoX0qE339tNOxq70Eeg=">
+<meta property="article:published_time" content="2025-01-03T07:17:11.734Z">
+<meta property="article:modified_time" content="2025-01-03T07:17:11.734Z">
+<meta property="article:author" content="田云鹏">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/f4692ed95c644d3b97e229f7398682cd~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5pe26ZuoX18=:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTc1NTI0MDEwMzE1OTczNSJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735826394&x-orig-sign=GNBSmL74is+3jjlqxIVuTLwDmjM=">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/typblog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/typblog/">
+      <strong>田云鹏的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/example/">
+                <i class="iconfont icon-book"></i>
+                留言板
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-03 15:17" pubdate>
+          2025年1月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          838 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="2024年度总结—平淡的一年"><a href="#2024年度总结—平淡的一年" class="headerlink" title="2024年度总结—平淡的一年"></a>2024年度总结—平淡的一年</h2><blockquote>
+<p>一直想写2024年年度总结，拖了很久，终于在2025年的第一天开始写了，工作一年的时候写过一次，那个时候刚找好工作，感慨万千，如今又过了一年多了，心态感觉变化了很多</p>
+<p>一年时候的总结：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7301204029597106230">应届裁员，天胡开局——谈谈我的前端一年经历</a></p>
+</blockquote>
+<h3 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h3><p>聊前端生涯总结，肯定离不开工作，这一年很稳定，一直待在这家</p>
+<p>在这一年里，从刚开始负责日常简单需求开发到后面成为独立项目的负责人，接触的开发内容也越来越多样化，app、h5、pc端目前都做过，也作为项目负责人参与项目的重构，其中一个项目获得了年度创新项目，也在纯血鸿蒙发布后对uniapp兼容鸿蒙进行调研，</p>
+<blockquote>
+<p>题外话：最后得到结论目前项目还是难以兼容鸿蒙开发，因为涉及到一些h5plus插件问题，另外吐槽一下鸿蒙的开发者文档部分还没有权限看，所以项目兼容鸿蒙还需要慎重考虑一下</p>
+</blockquote>
+<p>除了日常CURD之前也学习到了不少知识，nginx配置、项目部署、前端工程化等等</p>
+<p>这一年的工作让我真成长了不少，体验到了重构代码的痛苦，接触了屎山项目在上面堆屎，周末紧急处理线上bug，自己的抗压能力在不断变强</p>
+<h3 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h3><p>这一年的生活也相对稳定，没有裁员的忧虑，平常也有自己足够的时间，开始自己做饭、尝试一些好吃的，也到处跑，把上海附近该玩的玩玩，这一年去了苏州、南京，上海的各个景点也几乎转了个遍</p>
+<p><strong>南京</strong> 去了好多次<br><img src="https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/f4692ed95c644d3b97e229f7398682cd~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5pe26ZuoX18=:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTc1NTI0MDEwMzE1OTczNSJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735826394&x-orig-sign=GNBSmL74is+3jjlqxIVuTLwDmjM=" srcset="/typblog/img/loading.gif" lazyload alt="12e6cb707d8feb92b08ee3d030de5cb.jpg"></p>
+<p><strong>苏州</strong> 夏天去的要热晕<br><img src="https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/c3e0b4f5144a44ed86de2b256fade224~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5pe26ZuoX18=:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTc1NTI0MDEwMzE1OTczNSJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735826409&x-orig-sign=UIufxuHZRuC8S6BdrpqWMu6wqpY=" srcset="/typblog/img/loading.gif" lazyload alt="58ae14f8dfb8cad0fe0cfaf24bc8c9c.jpg"></p>
+<p><strong>上海</strong> 去和朋友看了高达太帅了<br><img src="https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/0bc0b4540f9f4d98885879e0b7ea0858~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5pe26ZuoX18=:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTc1NTI0MDEwMzE1OTczNSJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735826415&x-orig-sign=4zWRVrKCpoX0qE339tNOxq70Eeg=" srcset="/typblog/img/loading.gif" lazyload alt="e351b12fe41d70587aaefb4bdf56abe.jpg"></p>
+<p>年末打算去爬一下黄山，因为时间耽搁了，后续一定要去，明年计划多玩一点，去远点的地方旅游。</p>
+<p>这一年其实相对平淡，不过现在对我来说平淡也是一种幸福</p>
+<h3 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h3><p>第一次写年终总结，平淡的一年都不知道怎么记录了，那就2025年给自己定几个小目标</p>
+<ul>
+<li>继续学习，扩展技术栈一专多精，如果可以会换份工作</li>
+<li>锻炼身体，工作之后能感觉到自己身体越来越差了</li>
+<li>拓展菜系，满足自己的胃</li>
+<li>多旅游，看看远方的世界</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>给今年选一个主旋律的话就是平淡，在处理好工作和生活之后的平衡后就豁然开朗，新的一年里，也希望自己更近一步，引用一年前的话：</p>
+<blockquote>
+<p>“我的人生也刚刚开始”</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://tian-1-2.github.io/typblog/2025/01/03/2024年度总结—平淡的一年/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>田云鹏</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/typblog/2025/01/10/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%E3%80%81%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A%EF%BC%8C%E9%9D%A2%E8%AF%95%E6%97%B6%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E6%A0%B7%E5%9B%9E%E7%AD%94/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/typblog/2024/12/27/20241227-%E5%90%8E%E7%AB%AF%E5%88%A0%E4%BA%86%E6%88%91%E5%86%99%E7%9A%84&#39;&#39;&#39;&#39;%E6%8A%A5%E9%94%99%E4%BA%86%EF%BC%8C%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B%EF%BC%9F%E2%80%94%E2%80%94%E9%93%BE%E5%88%A4%E6%96%AD%E8%BF%90%E7%AE%97%E7%AC%A6/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"eCwG0nnpzuXX3P72P4DIj1Ct-gzGzoHsz","appKey":"qYCJDnCnKc5wQSRsaOCYPoRz","path":"window.location.pathname","placeholder":"你有什么想说得在这留下吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/typblog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/typblog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/typblog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

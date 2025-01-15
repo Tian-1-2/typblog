@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
-  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="[TOC] 百度地图打点性能优化（海量点、mapv）原因在百度地图api中，默认的点是下图的红点  而这种点位比较多的时候，就会出现加载卡顿问题 优化方法想要进行方法优化，首先需要分析其原因。 数据获取方面数据量比较庞大时，我们采用了分批调用获取的方法，采用异步的方式，可以利用await进行调用接口数据，这里是为了减轻服务端压力，把庞大的数据分批进行返回。 页面加载方面渲染时为什么会出现卡顿现象，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="百度地图打点性能优化（海量点、mapv）">
-<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2024/01/06/202416-%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E6%89%93%E7%82%B9%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%88%E6%B5%B7%E9%87%8F%E7%82%B9%E3%80%81mapv%EF%BC%89/index.html">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2024/01/06/202416-%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E6%89%93%E7%82%B9%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%88%E6%B5%B7%E9%87%8F%E7%82%B9%E3%80%81mapv%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] 百度地图打点性能优化（海量点、mapv）原因在百度地图api中，默认的点是下图的红点  而这种点位比较多的时候，就会出现加载卡顿问题 优化方法想要进行方法优化，首先需要分析其原因。 数据获取方面数据量比较庞大时，我们采用了分批调用获取的方法，采用异步的方式，可以利用await进行调用接口数据，这里是为了减轻服务端压力，把庞大的数据分批进行返回。 页面加载方面渲染时为什么会出现卡顿现象，">
 <meta property="og:locale" content="zh_CN">
@@ -59,12 +59,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+<link  rel="stylesheet" href="/typblog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
   
 
 
@@ -73,15 +73,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
-  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
   
 
 
@@ -98,7 +98,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+    <a class="navbar-brand" href="/typblog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -117,7 +117,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/">
+              <a class="nav-link" href="/typblog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -129,7 +129,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+              <a class="nav-link" href="/typblog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -141,7 +141,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+              <a class="nav-link" href="/typblog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -153,7 +153,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+              <a class="nav-link" href="/typblog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -165,7 +165,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+              <a class="nav-link" href="/typblog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -177,7 +177,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+              <a class="nav-link" href="/typblog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -206,7 +206,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -291,12 +291,12 @@
                 
                 <p>[TOC]</p>
 <h2 id="百度地图打点性能优化（海量点、mapv）"><a href="#百度地图打点性能优化（海量点、mapv）" class="headerlink" title="百度地图打点性能优化（海量点、mapv）"></a>百度地图打点性能优化（海量点、mapv）</h2><h5 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h5><p>在百度地图api中，默认的点是下图的红点</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240106174156171.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240106174156171"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240106174156171.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240106174156171"></p>
 <p>而这种点位比较多的时候，就会出现加载卡顿问题</p>
 <h5 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h5><p>想要进行方法优化，首先需要分析其原因。</p>
 <h6 id="数据获取方面"><a href="#数据获取方面" class="headerlink" title="数据获取方面"></a>数据获取方面</h6><p>数据量比较庞大时，我们采用了分批调用获取的方法，采用异步的方式，可以利用await进行调用接口数据，这里是为了减轻服务端压力，把庞大的数据分批进行返回。</p>
 <h6 id="页面加载方面"><a href="#页面加载方面" class="headerlink" title="页面加载方面"></a>页面加载方面</h6><p>渲染时为什么会出现卡顿现象，检查可以看出其原因</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240106174934686.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240106174934686"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240106174934686.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240106174934686"></p>
 <p>这是一个个dom结构，当海量数据同事渲染时，这里就涉及到大量的dom操作，造成重绘或重排，从而造成卡顿问题，所以解决问题的方法就是减少dom操作。</p>
 <p>其中一种解决方法就是转化为canvas,canvas操作相对于DOM操作资源消耗较少，因为canvas操作是基于像素的绘制操作，不涉及到浏览器的解析和渲染过程。</p>
 <p>而且百度地图在JavaScript API v3.0中给出了相应的解决方案 PointCollection属性</p>
@@ -371,7 +371,7 @@
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">document.create<span class="hljs-constructor">Element(<span class="hljs-string">&quot;canvas&quot;</span>)</span>.get<span class="hljs-constructor">Context(<span class="hljs-string">&quot;2d&quot;</span>)</span><br></code></pre></td></tr></table></figure>
 
 <p>下面是对支持canvas的浏览器以及版本供参考</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240106183151653.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240106183151653"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240106183151653.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240106183151653"></p>
 <p><strong>样式问题</strong></p>
 <p>海量点api中，它的样式是固定选择的几个，通过PointCollectionOptions中的ShapeType属性定义</p>
 <p>官网给的几个形状如下</p>
@@ -409,7 +409,7 @@
 <p><strong>Mapv</strong></p>
 <p>Mapv 是一款地理信息可视化开源库，可以用来展示大量地理信息数据，点、线、面的数据，每种数据也有不同的展示类型，如直接打点、热力图、网格、聚合等方式展示数据，其也是将地图绘制成canvas</p>
 <p>官网：<a target="_blank" rel="noopener" href="https://mapv.baidu.com/">https://mapv.baidu.com/</a></p>
-<p>GitHub：<a href="https://github.com/huiyan-fe/mapv">https://github.com/huiyan-fe/mapv</a></p>
+<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/huiyan-fe/mapv">https://github.com/huiyan-fe/mapv</a></p>
 <p>在这里可以自定义标点图标，下面是举例设置图标的地方</p>
 <p>示例：</p>
 <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs prolog">var data = [<br>    // 点数据<br>    &#123;<br>        geometry: &#123;<br>            type: <span class="hljs-string">&#x27;Point&#x27;</span>,<br>            coordinates: [<span class="hljs-number">123</span>, <span class="hljs-number">23</span>]<br>        &#125;,<br>        fillStyle: <span class="hljs-string">&#x27;red&#x27;</span>,<br>         // 支持image对象和url两种方式<br>        icon: [img, <span class="hljs-string">&#x27;images/marker.png&#x27;</span>, <span class="hljs-string">&#x27;images/star.png&#x27;</span>][randomCount <span class="hljs-comment">% 3],</span><br>        size: <span class="hljs-number">30</span><br>    &#125;,<br>    &#123;<br>        geometry: &#123;<br>            type: <span class="hljs-string">&#x27;Point&#x27;</span>,<br>            coordinates: [<span class="hljs-number">121</span>, <span class="hljs-number">33</span>]<br>        &#125;,<br>        fillStyle: <span class="hljs-string">&#x27;rgba(255, 255, 50, 0.5)&#x27;</span>,<br>        size: <span class="hljs-number">90</span><br>    &#125;,<br>    // 线数据<br>    &#123;<br>        geometry: &#123;<br>            type: <span class="hljs-string">&#x27;LineString&#x27;</span>,<br>            coordinates: [<br>                [<span class="hljs-number">123</span>, <span class="hljs-number">23</span>], <br>                [<span class="hljs-number">124</span>, <span class="hljs-number">24</span>]<br>            ]<br>        &#125;,<br>        count: <span class="hljs-number">30</span><br>    &#125;,<br>    // 面数据<br>    &#123;<br>        geometry: &#123;<br>            type: <span class="hljs-string">&#x27;Polygon&#x27;</span>,<br>            coordinates: [<br>                [<br>                    [<span class="hljs-number">123</span>, <span class="hljs-number">23</span>], <br>                    [<span class="hljs-number">123</span>, <span class="hljs-number">23</span>], <br>                    [<span class="hljs-number">123</span>, <span class="hljs-number">23</span>]<br>                ]<br>            ]<br>        &#125;,<br>        count: <span class="hljs-number">30</span> * <span class="hljs-symbol">Math</span>.random()<br>    &#125;<br>];<br><br>var dataSet = new mapv.<span class="hljs-symbol">DataSet</span>(data);<br></code></pre></td></tr></table></figure>
@@ -420,7 +420,7 @@
 <h5 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h5><p><a target="_blank" rel="noopener" href="https://lbsyun.baidu.com/index.php?title=jspopular3.0">百度地图jsapi v3</a></p>
 <p><a target="_blank" rel="noopener" href="https://mapopen-pub-jsapi.bj.bcebos.com/jsapi/reference/jsapi_reference_3_0.html#a3b20">jsapi v3类参考文档</a></p>
 <p><a target="_blank" rel="noopener" href="https://mapv.baidu.com/">mapv官网</a></p>
-<p><a href="https://github.com/huiyan-fe/mapv/blob/master/API.md">mapv官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/huiyan-fe/mapv/blob/master/API.md">mapv官方文档</a></p>
 
                 
               </div>
@@ -439,7 +439,7 @@
     
       <span class="category-chain">
         
-  <a href="/Tian-1-2/typblog/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="category-chain-item">性能优化</a>
+  <a href="/typblog/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="category-chain-item">性能优化</a>
   
   
 
@@ -454,7 +454,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Tian-1-2/typblog/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">#性能优化</a>
+        <a href="/typblog/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">#性能优化</a>
       
     </div>
   
@@ -467,7 +467,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>百度地图打点性能优化（海量点、mapv）</div>
-      <div>https://github.com/Tian-1-2/typblog/2024/01/06/202416-百度地图打点性能优化（海量点、mapv）/</div>
+      <div>https://tian-1-2.github.io/typblog/2024/01/06/202416-百度地图打点性能优化（海量点、mapv）/</div>
     </div>
     <div class="license-meta">
       
@@ -511,7 +511,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2024/02/01/202421-%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E8%BF%87%E6%9C%9F%EF%BC%88certificate-has-expired%EF%BC%89/" title="淘宝镜像过期（certificate has expired）">
+                      <a href="/typblog/2024/02/01/202421-%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E8%BF%87%E6%9C%9F%EF%BC%88certificate-has-expired%EF%BC%89/" title="淘宝镜像过期（certificate has expired）">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">淘宝镜像过期（certificate has expired）</span>
                         <span class="visible-mobile">上一篇</span>
@@ -521,7 +521,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2024/01/04/202414-%E8%87%AA%E5%AE%9A%E4%B9%89Echarts%E4%B8%ADlegend%E3%80%81tooltip%E7%AD%89%E6%A0%B7%E5%BC%8F/" title="自定义Echarts中legend、tooltip等样式">
+                      <a href="/typblog/2024/01/04/202414-%E8%87%AA%E5%AE%9A%E4%B9%89Echarts%E4%B8%ADlegend%E3%80%81tooltip%E7%AD%89%E6%A0%B7%E5%BC%8F/" title="自定义Echarts中legend、tooltip等样式">
                         <span class="hidden-mobile">自定义Echarts中legend、tooltip等样式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -676,8 +676,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/Tian-1-2/typblog/js/events.js" ></script>
-<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -699,7 +699,7 @@
 
 
   
-    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+    <script  src="/typblog/js/img-lazyload.js" ></script>
   
 
 
@@ -798,7 +798,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+  <script  src="/typblog/js/local-search.js" ></script>
 
 
 
@@ -806,7 +806,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+<script  src="/typblog/js/boot.js" ></script>
 
 
   

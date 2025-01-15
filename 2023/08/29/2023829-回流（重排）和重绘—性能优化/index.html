@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
-  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="回流（重排）和重绘—性能优化[TOC] 写在前面最近学习React，虚拟dom涉及这一点，而之前的工作中也曾涉及过，回流（重排）和重绘对于项目性能优化这一部分是必不可少的，这里对其做一下总结 浏览器渲染过程想要了解其是什么，需要简单了解一下浏览器的形成过程 浏览器在渲染页面的时候，大致是以下几个步骤：  解析html生成DOM树，解析css，生成CSSOM树，将DOM树和CSSOM树结合，生成渲染">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回流（重排）和重绘—性能优化">
-<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2023/08/29/2023829-%E5%9B%9E%E6%B5%81%EF%BC%88%E9%87%8D%E6%8E%92%EF%BC%89%E5%92%8C%E9%87%8D%E7%BB%98%E2%80%94%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2023/08/29/2023829-%E5%9B%9E%E6%B5%81%EF%BC%88%E9%87%8D%E6%8E%92%EF%BC%89%E5%92%8C%E9%87%8D%E7%BB%98%E2%80%94%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="回流（重排）和重绘—性能优化[TOC] 写在前面最近学习React，虚拟dom涉及这一点，而之前的工作中也曾涉及过，回流（重排）和重绘对于项目性能优化这一部分是必不可少的，这里对其做一下总结 浏览器渲染过程想要了解其是什么，需要简单了解一下浏览器的形成过程 浏览器在渲染页面的时候，大致是以下几个步骤：  解析html生成DOM树，解析css，生成CSSOM树，将DOM树和CSSOM树结合，生成渲染">
 <meta property="og:locale" content="zh_CN">
@@ -55,12 +55,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+<link  rel="stylesheet" href="/typblog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
   
 
 
@@ -69,15 +69,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
-  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
   
 
 
@@ -94,7 +94,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+    <a class="navbar-brand" href="/typblog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -113,7 +113,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/">
+              <a class="nav-link" href="/typblog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -125,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+              <a class="nav-link" href="/typblog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -137,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+              <a class="nav-link" href="/typblog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -149,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+              <a class="nav-link" href="/typblog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -161,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+              <a class="nav-link" href="/typblog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -173,7 +173,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+              <a class="nav-link" href="/typblog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -202,7 +202,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -413,7 +413,7 @@
     
       <span class="category-chain">
         
-  <a href="/Tian-1-2/typblog/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="category-chain-item">性能优化</a>
+  <a href="/typblog/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="category-chain-item">性能优化</a>
   
   
 
@@ -428,7 +428,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Tian-1-2/typblog/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">#性能优化</a>
+        <a href="/typblog/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">#性能优化</a>
       
     </div>
   
@@ -441,7 +441,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>回流（重排）和重绘—性能优化</div>
-      <div>https://github.com/Tian-1-2/typblog/2023/08/29/2023829-回流（重排）和重绘—性能优化/</div>
+      <div>https://tian-1-2.github.io/typblog/2023/08/29/2023829-回流（重排）和重绘—性能优化/</div>
     </div>
     <div class="license-meta">
       
@@ -485,7 +485,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2023/09/01/202391-webpack%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" title="webpack学习（一）基本配置">
+                      <a href="/typblog/2023/09/01/202391-webpack%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" title="webpack学习（一）基本配置">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">webpack学习（一）基本配置</span>
                         <span class="visible-mobile">上一篇</span>
@@ -495,7 +495,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2023/08/24/2023824-Vue3%E5%B0%81%E8%A3%85%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/" title="Vue3封装知识点（一）组件之间的传值">
+                      <a href="/typblog/2023/08/24/2023824-Vue3%E5%B0%81%E8%A3%85%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BC%A0%E5%80%BC/" title="Vue3封装知识点（一）组件之间的传值">
                         <span class="hidden-mobile">Vue3封装知识点（一）组件之间的传值</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -650,8 +650,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/Tian-1-2/typblog/js/events.js" ></script>
-<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -673,7 +673,7 @@
 
 
   
-    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+    <script  src="/typblog/js/img-lazyload.js" ></script>
   
 
 
@@ -772,7 +772,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+  <script  src="/typblog/js/local-search.js" ></script>
 
 
 
@@ -780,7 +780,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+<script  src="/typblog/js/boot.js" ></script>
 
 
   

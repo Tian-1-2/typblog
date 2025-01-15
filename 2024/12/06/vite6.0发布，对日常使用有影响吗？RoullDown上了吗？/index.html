@@ -1,0 +1,757 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="田云鹏">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="20241206-vite6.0发布，对日常使用有影响吗？Rolldown上了吗？ vite6.0版本最大的更新其实可以说是环境 API，下面更新内容都取自官网  环境 API作为新的实验性 环境 API 的一部分，我们进行了大规模的内部重构。Vite 6 努力避免引入破坏性的变更，以确保大多数项目能够快速升级到新的主要版本。我们会等待大部分的生态系统迁移并稳定后，再开始推荐使用新的 API。可能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2024/12/06/vite6.0%E5%8F%91%E5%B8%83%EF%BC%8C%E5%AF%B9%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E6%9C%89%E5%BD%B1%E5%93%8D%E5%90%97%EF%BC%9FRoullDown%E4%B8%8A%E4%BA%86%E5%90%97%EF%BC%9F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="20241206-vite6.0发布，对日常使用有影响吗？Rolldown上了吗？ vite6.0版本最大的更新其实可以说是环境 API，下面更新内容都取自官网  环境 API作为新的实验性 环境 API 的一部分，我们进行了大规模的内部重构。Vite 6 努力避免引入破坏性的变更，以确保大多数项目能够快速升级到新的主要版本。我们会等待大部分的生态系统迁移并稳定后，再开始推荐使用新的 API。可能">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-06T07:19:12.343Z">
+<meta property="article:modified_time" content="2024-12-06T07:37:07.324Z">
+<meta property="article:author" content="田云鹏">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/typblog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/typblog/">
+      <strong>田云鹏的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/typblog/example/">
+                <i class="iconfont icon-book"></i>
+                留言板
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-06 15:19" pubdate>
+          2024年12月6日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          44 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="20241206-vite6-0发布，对日常使用有影响吗？Rolldown上了吗？"><a href="#20241206-vite6-0发布，对日常使用有影响吗？Rolldown上了吗？" class="headerlink" title="20241206-vite6.0发布，对日常使用有影响吗？Rolldown上了吗？"></a>20241206-vite6.0发布，对日常使用有影响吗？Rolldown上了吗？</h2><blockquote>
+<p>vite6.0版本最大的更新其实可以说是环境 API，下面更新内容都取自<a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/why.html">官网</a></p>
+</blockquote>
+<h3 id="环境-API"><a href="#环境-API" class="headerlink" title="环境 API"></a>环境 API</h3><p>作为新的实验性 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/api-environment.html">环境 API</a> 的一部分，我们进行了大规模的内部重构。Vite 6 努力避免引入破坏性的变更，以确保大多数项目能够快速升级到新的主要版本。我们会等待大部分的生态系统迁移并稳定后，再开始推荐使用新的 API。可能会有一些边缘情况，但这些应该只会影响到框架和工具的底层使用。我们已经与生态系统中的维护者合作，在发布前减轻了这些差异。如果你发现了回退性问题，请 <a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/issues/new?assignees=&labels=pending+triage&projects=&template=bug_report.yml">新建 issue</a>。</p>
+<p>由于 Vite 的实现发生了改变，一些内部的 API 已经被移除了。如果你依赖于其中的某一个，那么请创建一个 <a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/issues/new?assignees=&labels=enhancement:+pending+triage&projects=&template=feature_request.yml">feature request</a>。</p>
+<h3 id="Vite-Runtime-API"><a href="#Vite-Runtime-API" class="headerlink" title="Vite Runtime API"></a>Vite Runtime API</h3><p>实验性的 Vite Runtime API 已经演变为模块运行器 API（Module Runner API），这是作为新的实验性 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/api-environment.html">环境 API</a> 的一部分，在 Vite 6 中发布。鉴于这个功能是实验性的，所以在 Vite 5.1 中引入的先前 API 的移除并不是一个破坏性的更改，但是用户在迁移到 Vite 6 的过程中，需要将他们的使用方式更新为与模块运行器相等的方式。</p>
+<h3 id="总体变化"><a href="#总体变化" class="headerlink" title="总体变化"></a>总体变化</h3><h4 id="resolve-conditions-的默认值"><a href="#resolve-conditions-的默认值" class="headerlink" title="resolve.conditions 的默认值"></a><code>resolve.conditions</code> 的默认值</h4><p>此更改不会影响未配置 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/shared-options.html#resolve-conditions"><code>resolve.conditions</code></a> &#x2F; <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/ssr-options.html#ssr-resolve-conditions"><code>ssr.resolve.conditions</code></a> &#x2F; <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/ssr-options.html#ssr-resolve-externalconditions"><code>ssr.resolve.externalConditions</code></a> 的用户。</p>
+<p>在 Vite 5 中，<code>resolve.conditions</code> 的默认值是 <code>[]</code>，某些条件是内部添加的。<code>ssr.resolve.conditions</code> 的默认值是 <code>resolve.conditions</code> 的值。</p>
+<p>从 Vite 6 开始，部分条件不再在内部添加，需要包含在配置值中。 不再在内部添加的条件为</p>
+<ul>
+<li><code>resolve.conditions</code> 是 <code>[&#39;module&#39;, &#39;browser&#39;, &#39;development|production&#39;]</code></li>
+<li><code>ssr.resolve.conditions</code> 是 <code>[&#39;module&#39;, &#39;node&#39;, &#39;development|production&#39;]</code></li>
+</ul>
+<p>这些选项的默认值会更新为相应的值，<code>ssr.resolve.conditions</code> 不再使用 <code>resolve.conditions</code> 作为默认值。请注意，<code>development|production</code>是一个特殊变量，会根据 <code>process.env.NODE_ENV</code> 的值被替换为 <code>production</code> 或 <code>development</code>。这些默认值从 <code>vite</code> 导出为 <code>defaultClientConditions</code> 和 <code>defaultServerConditions</code>。</p>
+<p>如果为 <code>resolve.conditions</code> 或 <code>ssr.resolve.conditions</code> 指定了自定义值，则需要更新该值以包含新条件。 例如，如果先前为 <code>resolve.conditions</code> 指定了 <code>[&#39;custom&#39;]</code>，那么现在就需要指定 <code>[&#39;custom&#39;, ...defaultClientConditions]</code>。</p>
+<h4 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON stringify"></a>JSON stringify</h4><p>在 Vite 5 中，当设置 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/shared-options.html#json-stringify"><code>json.stringify: true</code></a> 时，<a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/shared-options.html#json-namedexports"><code>json.namedExports</code></a> 会被禁用。</p>
+<p>从 Vite 6 开始，即使设置了 <code>json.stringify: true</code>，<code>json.namedExports</code> 也不会被禁用。如果希望实现以前的行为，可以设置 <code>json.namedExports: false</code>。</p>
+<p>Vite 6 还为 <code>json.stringify</code> 引入了一个新的默认值，即 <code>&#39;auto&#39;</code>，它只会对大型 JSON 文件进行字符串化处理。要禁用此行为，请设置 <code>json.stringify: false</code>。</p>
+<h4 id="在-HTML-元素中扩展对资源引用的支持"><a href="#在-HTML-元素中扩展对资源引用的支持" class="headerlink" title="在 HTML 元素中扩展对资源引用的支持"></a>在 HTML 元素中扩展对资源引用的支持</h4><p>在 Vite 5 中，只有少数支持的 HTML 元素能够引用由 Vite 处理和打包的资源，如<code>&lt;link href&gt;</code>、<code>&lt;img src&gt;</code> 等。</p>
+<p>Vite 6 扩展了对更多 HTML 元素的支持。完整列表请参见 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/features.html#html">HTML 功能介绍</a> 文档。</p>
+<p>要在某些元素上选择不进行 HTML 处理，可以在元素上添加 <code>vite-ignore</code> 属性。</p>
+<h4 id="postcss-load-config"><a href="#postcss-load-config" class="headerlink" title="postcss-load-config"></a>postcss-load-config</h4><p><a target="_blank" rel="noopener" href="https://npmjs.com/package/postcss-load-config"><code>postcss-load-config</code></a> 已从 v4 更新至 v6。现在需要 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/tsx"><code>tsx</code></a> 或 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/jiti"><code>jiti</code></a> 来加载 TypeScript postcss 配置文件，而非 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/ts-node"><code>ts-node</code></a>。此外，现在需要 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/yaml"><code>yaml</code></a> 来加载 YAML postcss 配置文件。</p>
+<h4 id="Sass-现在默认使用现代-API"><a href="#Sass-现在默认使用现代-API" class="headerlink" title="Sass 现在默认使用现代 API"></a>Sass 现在默认使用现代 API</h4><p>在 Vite 5 中，Sass 默认使用传统 API。Vite 5.4 增加了对现代 API 的支持。</p>
+<p>从 Vite 6 开始，Sass 默认使用现代 API。如果想继续使用传统 API，可以设置 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/shared-options.html#css-preprocessoroptions"><code>css.preprocessorOptions.sass.api: &#39;legacy&#39;</code> &#x2F; <code>css.preprocessorOptions.scss.api: &#39;legacy&#39;</code></a>。但请注意，传统 API 支持将在 Vite 7 中移除。</p>
+<p>要迁移到现代 API，请参阅 <a target="_blank" rel="noopener" href="https://sass-lang.com/documentation/breaking-changes/legacy-js-api/">Sass 文档</a>。</p>
+<h4 id="在-library-模式下自定义-CSS-输出文件名"><a href="#在-library-模式下自定义-CSS-输出文件名" class="headerlink" title="在 library 模式下自定义 CSS 输出文件名"></a>在 library 模式下自定义 CSS 输出文件名</h4><p>在 Vite 5 中，library 模式下的 CSS 输出文件名始终是 <code>style.css</code>，无法通过 Vite 配置轻松更改。</p>
+<p>从 Vite 6 开始，默认文件名将使用 <code>package.json</code> 中的 <code>&quot;name&quot;</code>，与 JS 输出文件类似。如果 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/build-options.html#build-lib"><code>build.lib.fileName</code></a> 设置为字符串，该值也将用于 CSS 输出文件名。要明确设置不同的 CSS 文件名，可以使用新的 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/build-options.html#build-lib"><code>build.lib.cssFileName</code></a> 进行配置。</p>
+<p>迁移时，如果您依赖于 <code>style.css</code> 文件名，则应根据软件包名称将对该文件的引用更新为新名称。例如:</p>
+<p>package.json</p>
+<p>json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;my-lib&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;exports&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;./style.css&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./dist/style.css&quot;</span><br>    <span class="hljs-attr">&quot;./style.css&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./dist/my-lib.css&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果你更喜欢像在 Vite 5 中那样使用 <code>style.css</code>，可以设置 <code>build.lib.cssFileName: &#39;style&#39;</code>。</p>
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><p>还有其他一些只影响少数用户的破坏性更改。</p>
+<ul>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/17922">#17922] fix(css)!: remove default import in ssr dev</a></p>
+<ul>
+<li>对 CSS 文件默认导入的支持在 Vite 4 中<a target="_blank" rel="noopener" href="https://v4.vite.dev/guide/migration.html#importing-css-as-a-string">已被弃用</a>，并在 Vite 5 中被移除，但在 SSR 开发模式中仍被无意支持。现在该支持已被移除。</li>
+</ul>
+</li>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/15637">#15637] fix!: default <code>build.cssMinify</code> to <code>&#39;esbuild&#39;</code> for SSR</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/build-options.html#build-cssminify"><code>build.cssMinify</code></a> 现在即使是 SSR 版本也默认为启用。</li>
+</ul>
+</li>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/18070">#18070] feat!: proxy bypass with WebSocket</a></p>
+<ul>
+<li><code>server.proxy[path].bypass</code> 现在用于 WebSocket 升级请求，在这种情况下，<code>res</code> 参数将是 <code>undefined</code>。</li>
+</ul>
+</li>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/18209">#18209] refactor!: bump minimal terser version to 5.16.0</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/build-options.html#build-minify"><code>build.minify: &#39;terser&#39;</code></a> 所支持的最小 terser 版本从 5.4.0 提升至 5.16.0</li>
+</ul>
+</li>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/18231">#18231] chore(deps): update dependency @rollup&#x2F;plugin-commonjs to v28</a></p>
+<ul>
+<li><p><code>commonjsOptions.strictRequires</code></p>
+<p>现在默认为</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>（之前为</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme"><span class="hljs-symbol">&#x27;auto</span>&#x27;<br></code></pre></td></tr></table></figure>
+
+<p>）。</p>
+<ul>
+<li>这可能会导致包的大小增大，但会使构建更加确定。</li>
+<li>如果将 CommonJS 文件指定为入口点，则可能需要额外的步骤。阅读 <a target="_blank" rel="noopener" href="https://github.com/rollup/plugins/blob/master/packages/commonjs/README.md#using-commonjs-files-as-entry-points">commonjs plugin 文档</a> 了解更多详情.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/18243">#18243] chore(deps)!: migrate <code>fast-glob</code> to <code>tinyglobby</code></a></p>
+<ul>
+<li>globs 中不再支持范围大括号 (<code>&#123;01..03&#125;</code> ⇒ <code>[&#39;01&#39;, &#39;02&#39;, &#39;03&#39;]</code>) 和递增大括号 (<code>&#123;2..8..2&#125;</code> ⇒ <code>[&#39;2&#39;, &#39;4&#39;, &#39;6&#39;, &#39;8&#39;]</code>) 。</li>
+</ul>
+</li>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/18395">#18395] feat(resolve)!: allow removing conditions</a></p>
+<ul>
+<li>此 PR 不仅引入了上文提到的 “ <code>resolve.conditions</code> 的默认值” 这一破坏性变更，还使得在 SSR 中，<code>resolve.mainFields</code> 不能用于无外部化依赖关系。如果您正在使用 <code>resolve.mainFields</code>，并希望将其应用于 SSR 中的无外部化依赖关系，您可以使用 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/ssr-options.html#ssr-resolve-mainfields"><code>ssr.resolve.mainFields</code></a>。</li>
+</ul>
+</li>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/18493">#18493] refactor!: remove fs.cachedChecks option</a></p>
+<ul>
+<li>由于在缓存文件夹中写入文件并立即导入时会出现边缘情况，因此删除了这一选择优化。</li>
+</ul>
+</li>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/18697">#18697] fix(deps)!: update dependency dotenv-expand to v12</a></p>
+<ul>
+<li>插值中使用的变量应在插值之前声明。更多详情，请参阅 <a target="_blank" rel="noopener" href="https://github.com/motdotla/dotenv-expand/blob/v12.0.1/CHANGELOG.md#1200-2024-11-16"><code>dotenv-expand</code> changelog</a>。</li>
+</ul>
+</li>
+<li><p>[<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/pull/16471">#16471] feat: v6 - Environment API</a></p>
+<ul>
+<li>对仅 SSR 模块的更新不再触发客户端的页面重载。要恢复以前的行为，可使用自定义 Vite 插件：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs axapta">import type &#123; Plugin, EnvironmentModuleNode &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vite&#x27;</span><br><br>function hmrReload(): Plugin &#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    name: <span class="hljs-string">&#x27;hmr-reload&#x27;</span>,<br>    enforce: <span class="hljs-string">&#x27;post&#x27;</span>,<br>    hotUpdate: &#123;<br>      <span class="hljs-keyword">order</span>: <span class="hljs-string">&#x27;post&#x27;</span>,<br>      handler(&#123; modules, <span class="hljs-keyword">server</span>, timestamp &#125;) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.environment.name !== <span class="hljs-string">&#x27;ssr&#x27;</span>) <span class="hljs-keyword">return</span><br><br>        let hasSsrOnlyModules = <span class="hljs-literal">false</span><br><br>        <span class="hljs-keyword">const</span> invalidatedModules = <span class="hljs-keyword">new</span> Set&lt;EnvironmentModuleNode&gt;()<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">mod</span> of modules) &#123;<br>          <span class="hljs-keyword">if</span> (<span class="hljs-keyword">mod</span>.id == <span class="hljs-literal">null</span>) <span class="hljs-keyword">continue</span><br>          <span class="hljs-keyword">const</span> clientModule =<br>            <span class="hljs-keyword">server</span>.environments.<span class="hljs-keyword">client</span>.moduleGraph.getModuleById(<span class="hljs-keyword">mod</span>.id)<br>          <span class="hljs-keyword">if</span> (clientModule != <span class="hljs-literal">null</span>) <span class="hljs-keyword">continue</span><br><br>          <span class="hljs-keyword">this</span>.environment.moduleGraph.invalidateModule(<br>            <span class="hljs-keyword">mod</span>,<br>            invalidatedModules,<br>            timestamp,<br>            <span class="hljs-literal">true</span>,<br>          )<br>          hasSsrOnlyModules = <span class="hljs-literal">true</span><br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (hasSsrOnlyModules) &#123;<br>          <span class="hljs-keyword">server</span>.ws.send(&#123; type: <span class="hljs-string">&#x27;full-reload&#x27;</span> &#125;)<br>          <span class="hljs-keyword">return</span> []<br>        &#125;<br>      &#125;,<br>    &#125;,<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="对日常开发影响"><a href="#对日常开发影响" class="headerlink" title="对日常开发影响"></a>对日常开发影响</h4><p>对日常开发影响不大，这次更新其实更像一个过渡版本，大多数项目可以轻松迁移到 Vite 6，注意是否涉及到上面部分修改即可</p>
+<h4 id="Rolldown上了吗"><a href="#Rolldown上了吗" class="headerlink" title="Rolldown上了吗"></a>Rolldown上了吗</h4><p>此次更新并未提及，但在最新v6文档中已经提到</p>
+<p>Rollup 已经开始着手改进性能，<a target="_blank" rel="noopener" href="https://github.com/rollup/rollup/pull/5073">在 v4 中将其解析器切换到 SWC</a>。同时还有一个正在进行中的工作，即构建一个名为 Rolldown 的 Rust 版本的 Rollup。一旦 Rolldown 准备就绪，它就可以在 Vite 中取代 Rollup 和 esbuild，显著提高构建性能，并消除开发和构建之间的不一致性。你可以观看 <a target="_blank" rel="noopener" href="https://youtu.be/hrdwQHoAp0M">Evan You 在 ViteConf 2023 的主题演讲</a> 了解更多细节。</p>
+<p>估计不会等太久！<a target="_blank" rel="noopener" href="https://rolldown.rs/about">Rolldown官网介绍</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://tian-1-2.github.io/typblog/2024/12/06/vite6.0发布，对日常使用有影响吗？RoullDown上了吗？/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>田云鹏</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/typblog/2024/12/27/20241227-%E5%90%8E%E7%AB%AF%E5%88%A0%E4%BA%86%E6%88%91%E5%86%99%E7%9A%84&#39;&#39;&#39;&#39;%E6%8A%A5%E9%94%99%E4%BA%86%EF%BC%8C%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B%EF%BC%9F%E2%80%94%E2%80%94%E9%93%BE%E5%88%A4%E6%96%AD%E8%BF%90%E7%AE%97%E7%AC%A6/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/typblog/2024/11/20/20241120-%E6%88%91%E5%A4%AA%E9%9A%BE%E4%BA%86%E5%88%A9%E7%94%A8uniapp%E5%BC%80%E5%8F%91%E9%B8%BF%E8%92%99%E2%80%94%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/" title="我太难了~利用uniapp开发鸿蒙—踩坑合集">
+                        <span class="hidden-mobile">我太难了~利用uniapp开发鸿蒙—踩坑合集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"eCwG0nnpzuXX3P72P4DIj1Ct-gzGzoHsz","appKey":"qYCJDnCnKc5wQSRsaOCYPoRz","path":"window.location.pathname","placeholder":"你有什么想说得在这留下吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/typblog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/typblog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/typblog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

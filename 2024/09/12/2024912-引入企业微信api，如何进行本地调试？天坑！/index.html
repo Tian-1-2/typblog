@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/Tian-1-2/typblog/img/fluid.png">
-  <link rel="icon" href="/Tian-1-2/typblog/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/typblog/img/fluid.png">
+  <link rel="icon" href="/typblog/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,7 +19,7 @@
     <meta name="description" content="引入企业微信api，如何进行本地调试？天坑！ 写在前面，因业务需求需要引入企业微信api，官方资料不友好，资料少，踩了太多坑了，记录一下，再喷一下！  企业微信引入时的坑1.引入分企业和应用，让人以为是两种，但是接口一样，只是部分接口需要先用agentConfig注册，导致在引入的时候都不知道选哪个 2.引入的agent等接口只能在微信浏览器环境或者微信开发者工具使用，你直接文档说明啊！ 3.所有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="引入企业微信api，如何进行本地调试？天坑！">
-<meta property="og:url" content="https://github.com/Tian-1-2/typblog/2024/09/12/2024912-%E5%BC%95%E5%85%A5%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1api%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%EF%BC%9F%E5%A4%A9%E5%9D%91%EF%BC%81/index.html">
+<meta property="og:url" content="https://tian-1-2.github.io/typblog/2024/09/12/2024912-%E5%BC%95%E5%85%A5%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1api%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%EF%BC%9F%E5%A4%A9%E5%9D%91%EF%BC%81/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="引入企业微信api，如何进行本地调试？天坑！ 写在前面，因业务需求需要引入企业微信api，官方资料不友好，资料少，踩了太多坑了，记录一下，再喷一下！  企业微信引入时的坑1.引入分企业和应用，让人以为是两种，但是接口一样，只是部分接口需要先用agentConfig注册，导致在引入的时候都不知道选哪个 2.引入的agent等接口只能在微信浏览器环境或者微信开发者工具使用，你直接文档说明啊！ 3.所有">
 <meta property="og:locale" content="zh_CN">
@@ -59,12 +59,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/Tian-1-2/typblog/css/main.css" />
+<link  rel="stylesheet" href="/typblog/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/typblog/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/Tian-1-2/typblog/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/typblog/css/highlight-dark.css" />
   
 
 
@@ -73,15 +73,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"github.com","root":"/Tian-1-2/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/Tian-1-2/typblog/local-search.xml"};
+    var CONFIG = {"hostname":"tian-1-2.github.io","root":"/typblog/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/typblog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/Tian-1-2/typblog/js/utils.js" ></script>
-  <script  src="/Tian-1-2/typblog/js/color-schema.js" ></script>
+  <script  src="/typblog/js/utils.js" ></script>
+  <script  src="/typblog/js/color-schema.js" ></script>
   
 
 
@@ -98,7 +98,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/Tian-1-2/typblog/">
+    <a class="navbar-brand" href="/typblog/">
       <strong>田云鹏的博客</strong>
     </a>
 
@@ -117,7 +117,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/">
+              <a class="nav-link" href="/typblog/">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -129,7 +129,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/archives/">
+              <a class="nav-link" href="/typblog/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -141,7 +141,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/categories/">
+              <a class="nav-link" href="/typblog/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -153,7 +153,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/tags/">
+              <a class="nav-link" href="/typblog/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -165,7 +165,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/about/">
+              <a class="nav-link" href="/typblog/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -177,7 +177,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/Tian-1-2/typblog/example/">
+              <a class="nav-link" href="/typblog/example/">
                 <i class="iconfont icon-book"></i>
                 留言板
               </a>
@@ -206,7 +206,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/Tian-1-2/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/typblog/img/bg/xingji1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -296,13 +296,13 @@
 <p>2.引入的agent等接口只能在微信浏览器环境或者微信开发者工具使用，你直接文档说明啊！</p>
 <p>3.所有的JS接口只能在<strong>企业微信应用的可信域名下调用(包括子域名)<strong>，且可信域名必须有</strong>ICP备案且在管理端验证域名归属</strong>，这就导致了本地我起的服务，域名都是我本地的，根本获取不了签名，使用不了js接口，调试放到线上才可以，可这样调试非常麻烦。本文主要讲的内容就是如何解决这个问题，在本地进行调试。</p>
 <h4 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h4><p>要想进行本地调试要准备两个工具</p>
-<p>switchHosts：<a href="https://github.com/oldj/SwitchHosts/releases">https://github.com/oldj/SwitchHosts/releases</a></p>
+<p>switchHosts：<a target="_blank" rel="noopener" href="https://github.com/oldj/SwitchHosts/releases">https://github.com/oldj/SwitchHosts/releases</a></p>
 <p>nginx：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
 <p>下载地址已经放上去，自行下载，具体安装教程可百度一下，这里不再具体讲了</p>
-<h4 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h4><p>既然说要企业微信应用的可信域名下调用(包括子域名)，就是我们当前地址栏要含有这个域名，在应用配置的这个域名<img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240912150832168.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240912150832168"></p>
+<h4 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h4><p>既然说要企业微信应用的可信域名下调用(包括子域名)，就是我们当前地址栏要含有这个域名，在应用配置的这个域名<img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240912150832168.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240912150832168"></p>
 <p>所以我们需要的方法就是模拟这个域名，但是访问的是本地的服务</p>
 <h5 id="第一步修改host"><a href="#第一步修改host" class="headerlink" title="第一步修改host"></a>第一步修改host</h5><p>在switchHosts里添加你起服务的ip，一般是127.0.0.1，然后后面配置这个可信任域名，就我们要模拟的域名</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240912151012689.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240912151012689"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240912151012689.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240912151012689"></p>
 <h5 id="第二步配置nginx代理"><a href="#第二步配置nginx代理" class="headerlink" title="第二步配置nginx代理"></a>第二步配置nginx代理</h5><p>打开nginx.conf文件，加入下列代码，替换server_name（xxxxxxx.cn）是你要访问的域名，和hosts内一致，proxy_pass对应的是你本地起的服务</p>
 <blockquote>
 <p>这里注意，error.log日志中出现[emery] blind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions) 错误是端口被占用了，nginx默认是监听80端口的，需要将原来的kill掉</p>
@@ -312,7 +312,7 @@
 
 <h5 id="第三步在微信公众号开发工具内调试"><a href="#第三步在微信公众号开发工具内调试" class="headerlink" title="第三步在微信公众号开发工具内调试"></a>第三步在微信公众号开发工具内调试</h5><p>将要访问的域名直接放微信公众号地址栏里就可以访问了</p>
 <p>控制台出现下面输入，企业微信就引入成功</p>
-<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240912153058337.png" srcset="/Tian-1-2/typblog/img/loading.gif" lazyload alt="image-20240912153058337"></p>
+<p><img src="https://gitee.com/typhome/typora-image-library/raw/master/img/image-20240912153058337.png" srcset="/typblog/img/loading.gif" lazyload alt="image-20240912153058337"></p>
 <h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p>具体操作实现了，但为什么这样可以做呢，从输入域名到本地具体处理过程还是要了解一下</p>
 <p>首先在浏览器地址栏输入域名，开始进行域名解析，因为会优先解析本地</p>
 <p>而本地修改了hosts，刚好匹配解析到了127.0.0.1这个ip</p>
@@ -342,7 +342,7 @@
     
       <span class="category-chain">
         
-  <a href="/Tian-1-2/typblog/categories/Nginx/" class="category-chain-item">Nginx</a>
+  <a href="/typblog/categories/Nginx/" class="category-chain-item">Nginx</a>
   
   
 
@@ -357,7 +357,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/Tian-1-2/typblog/tags/Nginx/">#Nginx</a>
+        <a href="/typblog/tags/Nginx/">#Nginx</a>
       
     </div>
   
@@ -370,7 +370,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>引入企业微信api，如何进行本地调试？天坑！</div>
-      <div>https://github.com/Tian-1-2/typblog/2024/09/12/2024912-引入企业微信api，如何进行本地调试？天坑！/</div>
+      <div>https://tian-1-2.github.io/typblog/2024/09/12/2024912-引入企业微信api，如何进行本地调试？天坑！/</div>
     </div>
     <div class="license-meta">
       
@@ -414,11 +414,17 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/typblog/2024/11/20/20241120-%E6%88%91%E5%A4%AA%E9%9A%BE%E4%BA%86%E5%88%A9%E7%94%A8uniapp%E5%BC%80%E5%8F%91%E9%B8%BF%E8%92%99%E2%80%94%E8%B8%A9%E5%9D%91%E5%90%88%E9%9B%86/" title="我太难了~利用uniapp开发鸿蒙—踩坑合集">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">我太难了~利用uniapp开发鸿蒙—踩坑合集</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Tian-1-2/typblog/2024/08/15/2024815-%E6%9D%A5%E6%91%B8%E9%B1%BC%E4%BA%86%EF%BC%81-canvas%E5%BC%B9%E7%90%83%E7%A2%B0%E6%92%9E%E5%B0%8F%E6%B8%B8%E6%88%8F/" title="来摸鱼了！ canvas弹球碰撞小游戏">
+                      <a href="/typblog/2024/08/15/2024815-%E6%9D%A5%E6%91%B8%E9%B1%BC%E4%BA%86%EF%BC%81-canvas%E5%BC%B9%E7%90%83%E7%A2%B0%E6%92%9E%E5%B0%8F%E6%B8%B8%E6%88%8F/" title="来摸鱼了！ canvas弹球碰撞小游戏">
                         <span class="hidden-mobile">来摸鱼了！ canvas弹球碰撞小游戏</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -573,8 +579,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/Tian-1-2/typblog/js/events.js" ></script>
-<script  src="/Tian-1-2/typblog/js/plugins.js" ></script>
+<script  src="/typblog/js/events.js" ></script>
+<script  src="/typblog/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -596,7 +602,7 @@
 
 
   
-    <script  src="/Tian-1-2/typblog/js/img-lazyload.js" ></script>
+    <script  src="/typblog/js/img-lazyload.js" ></script>
   
 
 
@@ -695,7 +701,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/Tian-1-2/typblog/js/local-search.js" ></script>
+  <script  src="/typblog/js/local-search.js" ></script>
 
 
 
@@ -703,7 +709,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/Tian-1-2/typblog/js/boot.js" ></script>
+<script  src="/typblog/js/boot.js" ></script>
 
 
   
